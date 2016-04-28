@@ -195,6 +195,7 @@ public class MSOL {
 			// click on Choose postcard
 			stepExecutor.clickButton("findElementByXPath", ".//*[@id='format_chooser']/div/div[1]/article[1]/a", webDriver,"MSOL");
 						
+			// switch to bars
 			JavascriptExecutor jse1 = (JavascriptExecutor)webDriver;
 			jse1.executeScript("scroll(0, 250)"); // if the element is on bottom.
 			
