@@ -1,0 +1,6 @@
+	public void FUNCTIONAME() throws InterruptedException, BiffException,
+			Exception {
+		
+		IFMAINFUNCTION
+
+		try {
