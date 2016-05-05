@@ -65,23 +65,24 @@ public class Executioner {
 			properties.load(new FileInputStream("./data/config.properties"));
 			
 			if(testNG==false){
-			Object[] options = { "Create" , "Execute" ,"Cancel" };
-			i = JOptionPane.showOptionDialog(null,
-					"What action you want to do?",
-					"WELCOME TO CAFE SELENIUM!! ",
-					JOptionPane.YES_NO_CANCEL_OPTION,
-					JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
-			}else{
-				i=1;
-			}
-			if(i==0){
-				Cafe_UI recorderUi = new Cafe_UI();
-
-				recorderUi.createUI();
-				recorderUi.viewUI();
-				
-				
-				
+			Object[] options = { /*"Create" , */"Execute" ,"Cancel" };   //un comment create
+			i=1;
+//			i = JOptionPane.showOptionDialog(null,
+//					"What action you want to do?",
+//					"WELCOME TO CAFE SELENIUM!! ",
+//					JOptionPane.YES_NO_CANCEL_OPTION,
+//					JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+//			}else{
+//				i=1;
+//			}
+//			if(i==0){
+//				Cafe_UI recorderUi = new Cafe_UI();
+//
+//				recorderUi.createUI();
+//				recorderUi.viewUI();
+//				
+//				
+//				
 			}
 			if (i == 1) {
 				

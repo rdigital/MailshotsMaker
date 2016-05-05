@@ -38,7 +38,7 @@ public class CreateDriver {
 	 * gets created-*-
 	 * 
 	 * @param No
-	 *            param
+	 * param
 	 * @return RemoteWebDriver object.
 	 */
 
@@ -122,9 +122,9 @@ public class CreateDriver {
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("browser.download.folderList",2);
 				chromePrefs.put("browser.download.manager.showWhenStarting",false);
-				chromePrefs.put("browser.download.dir",downloadpath); 
+			//	chromePrefs.put("browser.download.dir",downloadpath); 
 				chromePrefs.put("profile.default_content_settings.popups",0);
-				chromePrefs.put("download.default_directory", downloadpath);
+				//chromePrefs.put("download.default_directory", downloadpath);
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("prefs", chromePrefs);
 				DesiredCapabilities cap = DesiredCapabilities.chrome();
@@ -214,8 +214,11 @@ public class CreateDriver {
 				return safariDriver;
 			} else if (strBrowserType.equalsIgnoreCase("chrome")) {
 
+			//	System.setProperty("webdriver.chrome.driver",
+			//			"./data/chromedriver.exe");
+				
 				System.setProperty("webdriver.chrome.driver",
-						"./data/chromedriver.exe");
+									"D://Jar//data//chromedriver.exe");
 				
 				String downloadpath = strDataPath;
 				System.out.println(downloadpath);
@@ -224,9 +227,9 @@ public class CreateDriver {
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("browser.download.folderList",2);
 				chromePrefs.put("browser.download.manager.showWhenStarting",false);
-				chromePrefs.put("browser.download.dir",downloadpath); 
+				//chromePrefs.put("browser.download.dir",downloadpath); 
 				chromePrefs.put("profile.default_content_settings.popups",0);
-				chromePrefs.put("download.default_directory", downloadpath);
+				//chromePrefs.put("download.default_directory", downloadpath);
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("prefs", chromePrefs);
 				DesiredCapabilities cap = DesiredCapabilities.chrome();

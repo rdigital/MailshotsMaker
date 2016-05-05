@@ -105,7 +105,7 @@ public class MSOL {
 
 		
 		reporter.CreateSummary("Cafe#"+browserName);
-		//System.exit(1);
+		System.exit(1);
 	}
 	
 	public void executeTestcase(RemoteWebDriver rdriver,String host,String browser) throws Exception {		
@@ -144,6 +144,7 @@ public class MSOL {
 		float timeElapsed = reporter.getElapsedTime();
 		reporter.timeElapsed = timeElapsed;
 		reporter.CreateSummary(browser);
+		System.exit(2);
 	}
 	
 	
@@ -212,7 +213,7 @@ public class MSOL {
 			JavascriptExecutor jse3 = (JavascriptExecutor)webDriver;
 			jse3.executeScript("scroll(0, 200)"); // if the element is on bottom.
 			
-			
+			/*
 			//click on Add address details button
 			//stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add address details')]", webDriver,"MSOL");
 			
@@ -273,7 +274,7 @@ public class MSOL {
 		  System.out.println("RT998");
 		  stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Find new customers')]", webDriver,"MSOL");
 	        
-		  System.out.println("RT999");
+		  System.out.println("RT999");*/
 		  
 		} catch (Exception e) {
 			e.printStackTrace();
