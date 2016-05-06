@@ -1,0 +1,12 @@
+[3876:5112:0406/174152:WARNING:data_reduction_proxy_config.cc(330)] SPDY proxy OFF at startup
+[3876:5636:0406/174152:ERROR:bluetooth_adapter_win.cc(102)] NOT IMPLEMENTED
+[3876:5636:0406/174153:INFO:CONSOLE(0)] "Document was loaded from Application Cache with manifest https://www.google.com/_/chrome/newtab/manifest?espv=2&ie=UTF-8", source: https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8 (0)
+[3876:5636:0406/174153:INFO:CONSOLE(0)] "Application Cache Checking event", source: https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8 (0)
+[3876:5636:0406/174154:INFO:CONSOLE(0)] "Application Cache NoUpdate event", source: https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8 (0)
+[3876:5636:0406/174812:INFO:CONSOLE(0)] "'webkitURL' is deprecated. Please use 'URL' instead.", source:  (0)
+[3876:5636:0406/175352:INFO:CONSOLE(64)] "Invalid App Id: Must be a number or numeric string representing the application id.", source: http://connect.facebook.net/en_US/all.js (64)
+[3876:5636:0406/175352:INFO:CONSOLE(64)] "The "fb-root" div has not been created, auto-creating", source: http://connect.facebook.net/en_US/all.js (64)
+[3876:5636:0406/175352:INFO:CONSOLE(64)] "FB.getLoginStatus() called before calling FB.init().", source: http://connect.facebook.net/en_US/all.js (64)
+[3876:8352:0406/175812:WARNING:dns_config_service_win.cc(649)] Failed to read DnsConfig.
+[3876:5636:0406/180552:INFO:CONSOLE(0)] "Document was loaded from Application Cache with manifest https://www.google.com/_/chrome/newtab/manifest?espv=2&ie=UTF-8", source: https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8 (0)
+[3876:5636:0406/180552:INFO:CONSOLE(0)] "Application Cache Checking event", source: https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8 (0)
