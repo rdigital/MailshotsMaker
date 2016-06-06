@@ -122,9 +122,9 @@ public class CreateDriver {
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("browser.download.folderList",2);
 				chromePrefs.put("browser.download.manager.showWhenStarting",false);
-			//	chromePrefs.put("browser.download.dir",downloadpath); 
+				chromePrefs.put("browser.download.dir",downloadpath); 
 				chromePrefs.put("profile.default_content_settings.popups",0);
-				//chromePrefs.put("download.default_directory", downloadpath);
+			    chromePrefs.put("download.default_directory", downloadpath);
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("prefs", chromePrefs);
 				DesiredCapabilities cap = DesiredCapabilities.chrome();

@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -15,9 +16,12 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.capgemini.driver.CreateDriver;
@@ -105,7 +109,7 @@ public class MSOL {
 
 		
 		reporter.CreateSummary("Cafe#"+browserName);
-		System.exit(1);
+		//System.exit(0);
 	}
 	
 	public void executeTestcase(RemoteWebDriver rdriver,String host,String browser) throws Exception {		
@@ -158,6 +162,9 @@ public class MSOL {
 		
 		try {
 			
+			stepExecutor.clickButton("findElementById", "cookie_submit", webDriver,"MSOL");
+			
+			//Click on Login 
 			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Login')]", webDriver,"MSOL");
 			
 			Thread.sleep(5000);
@@ -168,13 +175,16 @@ public class MSOL {
 			
 			//Click on Login button
 			stepExecutor.clickButton("findElementByXPath", ".//*[@id='login']/div/form/div[4]/button", webDriver,"MSOL");
+			//stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'login')]", webDriver,"MSOL");
+			
+			System.out.println("Log on sucessfully to application");
 			
 			Thread.sleep(5000);
 			stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Mailshots')]", webDriver,"MSOL");
 			Thread.sleep(5000);
 			
 			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/campaign-list-component/div/div/span", webDriver,"MSOL");
-			Thread.sleep(7000);
+			Thread.sleep(9000);
 			
 			stepExecutor.enterTextValue("findElementById", "campaignname", DataMap,"Untitled_mailshot", webDriver, "MSOL");
 			
@@ -187,11 +197,12 @@ public class MSOL {
 			
 			//click on Create a design
 			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Create a design')]", webDriver,"MSOL");
-			
+			System.out.println("click on  Create a design button sucessfully");
 			Thread.sleep(4000);
 			
 			JavascriptExecutor jse0 = (JavascriptExecutor)webDriver;
 			jse0.executeScript("scroll(0, 250)"); // if the element is on bottom.
+			
 			//stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Choose Postcard')]", webDriver,"MSOL");
 			// click on Choose postcard
 			stepExecutor.clickButton("findElementByXPath", ".//*[@id='format_chooser']/div/div[1]/article[1]/a", webDriver,"MSOL");
@@ -204,6 +215,8 @@ public class MSOL {
 			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Quick start')]", webDriver,"MSOL");
 			Thread.sleep(8000);
 			
+			System.out.println("click on Quick start button sucessfully");
+			
 			// click on done 
 			//stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Done')]", webDriver,"MSOL");
 			
@@ -213,69 +226,218 @@ public class MSOL {
 			JavascriptExecutor jse3 = (JavascriptExecutor)webDriver;
 			jse3.executeScript("scroll(0, 200)"); // if the element is on bottom.
 			
-			/*
-			//click on Add address details button
-			//stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add address details')]", webDriver,"MSOL");
 			
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[1]/div[2]/div/div/form/button", webDriver,"MSOL");
+			//click on Add address details button
+			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add address details')]", webDriver,"MSOL");
+			
+			//stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[1]/div[2]/div/div/form/button", webDriver,"MSOL");
+			
 			Thread.sleep(3000);
 			JavascriptExecutor jse4 = (JavascriptExecutor)webDriver;
 			jse4.executeScript("scroll(0, 270)"); // if the element is on bottom.
 			
+			//stepExecutor.clickElement("findElementByXPath", "html/body/div[2]/div[2]/lists-component/div/div[2]/my-lists-component/section/ul/li[1]/div/span", webDriver, "TWG");
 			
-			//Create a new list address  button
-			//stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Create a new list')]", webDriver,"MSOL");
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/div[2]/my-lists-component/section/div/a", webDriver,"MSOL");
+			//stepExecutor.clickElement("findElementByXPath", ".//input[@type='checkbox'])[position()=1]", webDriver, "TWG");
 			
-			//Enter Address Title
-			stepExecutor.enterTextValue("findElementById", "listname", DataMap,"NewAddress_Title", webDriver, "MSOL");
+			if (verify.verifyElementIsPresentCheck(webDriver, ".//a[contains(text(),'Create a new list')]", "xpath")){
+			List<WebElement> CustList = webDriver.findElements(By.xpath(".//*[@class='lists__my-lists']//li"));
+			//List<WebElement> CustList = webDriver.findElements(By.cssSelector("lists__my-lists--lists lists__my-lists__list"));
+			System.out.println(CustList.size());
+					
+			if (CustList.size() >0)
+			{
+				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+				
+				
+				stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add to mailshot')]", webDriver,"MSOL");
+				
+				System.out.println("Add to mailshot");
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/batch-tray-component/div/div/div/div[2]/button", webDriver,"MSOL");
+				
+				System.out.println("Add to mailshot1");
+				Thread.sleep(6000);
+				
+				JavascriptExecutor jse8 = (JavascriptExecutor)webDriver;
+				jse8.executeScript("scroll(0, 270)"); // if the element is on bottom.
+				
+				System.out.println("moved on bottom");
+				
+	           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+				
+				System.out.println("Agrees To Terms And Conditions");	
+				
+				//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSOL");
+				
+				//System.out.println("Click on Checkout button");	
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MSOL");
+				System.out.println("Click on Checkout button1");
+				
+				Thread.sleep(6000);
+							
+				//stepExecutor.launchApplication("Paypal_URL", DataMap, webDriver);
+				
+				//WebElement selectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
+				webDriver.switchTo().frame(webDriver.findElement(By.cssSelector("#injectedUnifiedLogin>iframe")));
+				stepExecutor.enterTextValue("findElementById", "email", DataMap,"Paypal_username", webDriver, "MSOL");
+				System.out.println("pay pal email");
+				stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='password']", DataMap,"Paypal_Password", webDriver, "MSOL");
+				System.out.println("pay pal password");
+				stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Log In')]", webDriver,"MSOL");
+				
+				System.out.println("click on pay pal button");
+				
+				webDriver.switchTo().defaultContent();
+				Thread.sleep(6000);
+				//stepExecutor.clickByCss("#confirmButtonTop", webDriver);
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSOL");
+				System.out.println("Transaction done sucessfully");
+				
+				Thread.sleep(5000);
+				
+				
+				stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Go to my dashboard')]", webDriver,"Dashboard");
+				
+				System.out.println("Go to my dashboard");
+				
+			} 
+			}else {
+				//#ToDO
+				
+				stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Add customer details')]", webDriver,"MSOL");
+				System.out.println("Add customer details");
+				//stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/div[2]/my-lists-component/section/div/div/a", webDriver,"MSOL");
+				
+			//	System.out.println("Add customer details 1");
+			/*	//Create a new list address  button
+				stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Create a new list')]", webDriver,"MSOL");
+				System.out.println("Create a new list");
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/div[2]/my-lists-component/section/div/a", webDriver,"MSOL");
+				
+				System.out.println("new list address  button");*/
+				
+				//Enter Address Title
+				stepExecutor.enterTextValue("findElementById", "listname", DataMap,"NewAddress_Title", webDriver, "MSOL");
 						
-			//click on ok button
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[1]/div/div/form/span/button", webDriver,"MSOL");
-			
-			JavascriptExecutor jse5 = (JavascriptExecutor)webDriver;
-			jse5.executeScript("scroll(0, 270)"); // if the element is on bottom.
-			
-			//stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add contact details individually')]", webDriver,"MSOL");
-			
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[2]/upload-data-component/div/div/div[1]/a", webDriver,"MSOL");
-			//System.out.println("RT993");
+				System.out.println("Enter Address Title ");
+				//click on ok button
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[1]/div/div/form/span/button", webDriver,"MSOL");
+				
+				JavascriptExecutor jse5 = (JavascriptExecutor)webDriver;
+				jse5.executeScript("scroll(0, 270)"); // if the element is on bottom.
+				
+				stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Add contact details individually')]", webDriver,"MSOL");
+				System.out.println("clicked on Add contact details individually via contains");
+				
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[2]/upload-data-component/div/div/div[1]/a", webDriver,"MSOL");
+				
+				System.out.println("clicked on Add contact details individually");
 
-	        String winHandleBefore = webDriver.getWindowHandle();
+		        String winHandleBefore = webDriver.getWindowHandle();
 
-	        for(String winHandle : webDriver.getWindowHandles()){
-	        	webDriver.switchTo().window(winHandle);
-	        	        	
-	        }
-	        	        
-			//Entering Value in Title
-	        stepExecutor.enterTextValue("findElementById", "editTitle", DataMap,"EditTitle", webDriver, "MSOL");
-	       // Entering Value in First name
-	        stepExecutor.enterTextValue("findElementById", "editFirstName", DataMap,"EditFirstName", webDriver, "MSOL");
-	        //Entering Value in Last name
-	        stepExecutor.enterTextValue("findElementById", "editSurname", DataMap,"EditSurname", webDriver, "MSOL");
-	         //Entering Value in Flat id
-	        stepExecutor.enterTextValue("findElementById", "editFlatId", DataMap,"EditFlatId", webDriver, "MSOL");
-	       // Entering Value in House name
-	        stepExecutor.enterTextValue("findElementById", "editHouseName", DataMap,"EditHouseName", webDriver, "MSOL");
-	        //Entering Value in House No
-	        stepExecutor.enterTextValue("findElementById", "editHouseNumber", DataMap,"EditHouseNumber", webDriver, "MSOL");
-	        //Entering Value in Address one
-	        stepExecutor.enterTextValue("findElementById", "editAddress1", DataMap,"EditAddress1", webDriver, "MSOL");
-		       // Entering Value in Post Code
-		    stepExecutor.enterTextValue("findElementById", "editPostCode", DataMap,"EditPostCode", webDriver, "MSOL");
-		     
-		    stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Save and close')]", webDriver,"MSOL");
+		        for(String winHandle : webDriver.getWindowHandles()){
+		        	webDriver.switchTo().window(winHandle);
+		        	        	
+		        }
+		        	        
+				//Entering Value in Title
+		        stepExecutor.enterTextValue("findElementById", "editTitle", DataMap,"EditTitle", webDriver, "MSOL");
+		       // Entering Value in First name
+		        stepExecutor.enterTextValue("findElementById", "editFirstName", DataMap,"EditFirstName", webDriver, "MSOL");
+		        //Entering Value in Last name
+		        stepExecutor.enterTextValue("findElementById", "editSurname", DataMap,"EditSurname", webDriver, "MSOL");
+		         //Entering Value in Flat id
+		        stepExecutor.enterTextValue("findElementById", "editFlatId", DataMap,"EditFlatId", webDriver, "MSOL");
+		       // Entering Value in House name
+		        stepExecutor.enterTextValue("findElementById", "editHouseName", DataMap,"EditHouseName", webDriver, "MSOL");
+		        //Entering Value in House No
+		        stepExecutor.enterTextValue("findElementById", "editHouseNumber", DataMap,"EditHouseNumber", webDriver, "MSOL");
+		        //Entering Value in Address one
+		        stepExecutor.enterTextValue("findElementById", "editAddress1", DataMap,"EditAddress1", webDriver, "MSOL");
+			       // Entering Value in Post Code
+			    stepExecutor.enterTextValue("findElementById", "editPostCode", DataMap,"EditPostCode", webDriver, "MSOL");
+			     
+			    stepExecutor.clickButton("findElementByXPath", ".//*[@class='btn btn--green confirm-add']", webDriver,"MSOL");
+			    
+			    //stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/add-contact-component/div/div[1]/div[12]/button[3]", webDriver,"MSOL");
+			    Thread.sleep(5000);
+			    		  
+			  System.out.println("RT993");
+			  webDriver.switchTo().window(winHandleBefore);
+			  
+			    stepExecutor.clickButton("findElementByXPath", ".//span[contains(text(),'Back to Add data page')]", webDriver,"MSOL");
+				
+				Thread.sleep(5000);
+				
+				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+				
+                stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add to mailshot')]", webDriver,"MSOL");
+				
+				System.out.println("Add to mailshot");
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/batch-tray-component/div/div/div/div[2]/button", webDriver,"MSOL");
+				
+				System.out.println("Add to mailshot1");
+				Thread.sleep(6000);
+				
+				JavascriptExecutor jse8 = (JavascriptExecutor)webDriver;
+				jse8.executeScript("scroll(0, 270)"); // if the element is on bottom.
+				
+				System.out.println("moved on bottom");
+				
+	           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+				
+				System.out.println("Agrees To Terms And Conditions");	
+				
+				//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSOL");
+				
+				//System.out.println("Click on Checkout button");	
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MSOL");
+				System.out.println("Click on Checkout button1");
+				
+				Thread.sleep(6000);
+							
+				//stepExecutor.launchApplication("Paypal_URL", DataMap, webDriver);
+				
+				//WebElement selectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
+				webDriver.switchTo().frame(webDriver.findElement(By.cssSelector("#injectedUnifiedLogin>iframe")));
+				stepExecutor.enterTextValue("findElementById", "email", DataMap,"Paypal_username", webDriver, "MSOL");
+				System.out.println("pay pal email");
+				stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='password']", DataMap,"Paypal_Password", webDriver, "MSOL");
+				System.out.println("pay pal password");
+				stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Log In')]", webDriver,"MSOL");
+				
+				System.out.println("click on pay pal button");
+				
+				webDriver.switchTo().defaultContent();
+				Thread.sleep(6000);
+				//stepExecutor.clickByCss("#confirmButtonTop", webDriver);
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSOL");
+				System.out.println("Transaction done sucessfully");
+				
+				Thread.sleep(5000);
+				
+				
+				stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Go to my dashboard')]", webDriver,"Dashboard");
+				
+				System.out.println("Go to my dashboard");
+				
+			}
+			
+			
+			/*stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Register')]", webDriver,"MSOL");
+			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/header/nav/div/a[2]", webDriver,"MSOL"); */
+			
+			//stepExecutor.clickButton("findElementById", "confirmButtonTop", webDriver,"MSOL");
+			
+		
 		  
-		  System.out.println("RT993");
-		  webDriver.switchTo().window(winHandleBefore);
-		  
-		  stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Back to Add data page')]", webDriver,"MSOL");
+		 /* stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Back to Add data page')]", webDriver,"MSOL");
 		  System.out.println("RT998");
 		  stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Find new customers')]", webDriver,"MSOL");
-	        
-		  System.out.println("RT999");*/
-		  
+	      	  		
+			System.out.println("Test case run sucessfully ");*/
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -283,10 +445,10 @@ public class MSOL {
 				
 	}
 	
-	public void scrollwindow ()
+	/*public void scrollwindow ()
 	{
 		
-	}
+	}*/
 	
 	public void WriteExcelDataFile(String fileName, int expectedRowNumber,
 			String expectedToken, String strCellValue)
