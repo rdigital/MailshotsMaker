@@ -63,8 +63,7 @@ public class SampleTestApplication {
 		return StrExecutionStartTime;
 
 }
-	
-	
+		
 	public void executeTestcase(String browserName) throws Exception {
 		int iNumberOfRows = 0;
 		readExcel.setInputFile(System.getProperty("File"));
@@ -105,50 +104,71 @@ public class SampleTestApplication {
 		reporter.strStopTime = strStopTime;
 		float timeElapsed = reporter.getElapsedTime();
 		reporter.timeElapsed = timeElapsed;
-
 		
 		reporter.CreateSummary("Cafe#"+browserName);
 		System.exit(0);
 	}
 	
-	
-	
+		
 	public void testcaseMain() throws InterruptedException, BiffException,
 	Exception {
 		
 
 		stepExecutor.launchApplication("URL", DataMap, webDriver);
+		System.out.println("Application URL launch sucessfully");
 		
 		webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		try {
 			
 			
-			String ExpectedTitle = scriptExecutor.readDataFile(strDataFileName,TestCase,rownumber, "Title");
+			String ExpectedTitle_F1 = scriptExecutor.readDataFile(strDataFileName,TestCase,rownumber, "Title_1");
 			
-			String actualTitle = webDriver.findElementByXPath("//h5[text()='Find Web Hosting']").getText();
+			String actualTitle_F1 = webDriver.findElementByXPath(".//h5[text()='Find Web Hosting']").getText();
 			
+            String ExpectedTitle_F2 = scriptExecutor.readDataFile(strDataFileName,TestCase,rownumber, "Title_2");
+			
+			String actualTitle_F2 = webDriver.findElementByXPath("//h5[text()='Getting Started']").getText();
 			//h5[text()='Find Web Hosting']
+			//h5[text()='Getting Started']
+						
+			System.out.println(actualTitle_F1);
 			
-			System.out.println(actualTitle);
-			
-			WriteExcelDataFile(strDataFileName, rownumber, "Actual_Title", actualTitle);
-			if (ExpectedTitle.equals(actualTitle)) {
+			WriteExcelDataFile(strDataFileName, rownumber, "Actual_Title1", actualTitle_F1);
+			if (ExpectedTitle_F1.equals(actualTitle_F1)) {
 				reporter.writeStepResult("MainTitle",
 						"Verify Title is present in the element", "Expected: "
-								+ ExpectedTitle, "Pass", "Expected text is present",
+								+ ExpectedTitle_F1, "Pass", "Expected text is present",
 						true, webDriver);
-				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title", "PASS");
+				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title1", "PASS");
 			} else {
 				reporter.writeStepResult("MainTitle", 
 						"Verify Title is present in the element", "Expected: "
-								+ ExpectedTitle, "Fail",
+								+ ExpectedTitle_F1, "Fail",
 						"Expected text  is not present (Actual: "
-								+ actualTitle + ")", true, webDriver);
-				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title", "FAIL");
+								+ actualTitle_F1 + ")", true, webDriver);
+				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title1", "FAIL");
 			}
 			
 			
+			WriteExcelDataFile(strDataFileName, rownumber, "Actual_Title2", actualTitle_F2);
+			if (ExpectedTitle_F2.equals(actualTitle_F2)) {
+				reporter.writeStepResult("MainTitle",
+						"Verify Title is present in the element", "Expected: "
+								+ ExpectedTitle_F2, "Pass", "Expected text is present",
+						true, webDriver);
+				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title2", "PASS");
+			} else {
+				reporter.writeStepResult("MainTitle", 
+						"Verify Title is present in the element", "Expected: "
+								+ ExpectedTitle_F2, "Fail",
+						"Expected text  is not present (Actual: "
+								+ actualTitle_F2 + ")", true, webDriver);
+				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title2", "FAIL");
+			}
+			
+			System.out.println("");
+			System.out.println("Application run sucessfully");
 			
 			/*String ExpectedTitle ="DevOps Test Flow";
 			String ActualTitle = webDriver.getTitle();
