@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +20,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -33,9 +36,9 @@ import com.capgemini.utilities.Reporter;
 import com.capgemini.utilities.Utilities;
 import com.capgemini.utilities.Verification;
 
-public class SampleTestApplication {
+public class OBA {
 	
-	public String TestCase="SampleTestApplication";
+	public String TestCase="OBA";
 	DesiredCapabilities capabilities = new DesiredCapabilities();
 	Reporter reporter = new Reporter(this.getClass().getSimpleName());
 	CreateDriver driver = new CreateDriver();
@@ -55,7 +58,7 @@ public class SampleTestApplication {
 	int rownumber = 0;
 	private static String strAbsolutepath = new File("").getAbsolutePath();
 	private static String strDataPath = strAbsolutepath + "/data/";
-	String strDataFileName = utils.getDataFile("SampleTestApplication");
+	String strDataFileName = utils.getDataFile("OBA");
 	private boolean acceptNextAlert = true;
 	String strStopTime;
 	public static final String DATE_FORMAT = "MM/dd/yyyy";
@@ -122,74 +125,47 @@ public class SampleTestApplication {
 		try {
 			
 			
-			String ExpectedTitle_F1 = scriptExecutor.readDataFile(strDataFileName,TestCase,rownumber, "Title_1");
-			
-			String actualTitle_F1 = webDriver.findElementByXPath(".//h5[text()='Find Web Hosting']").getText();
-			
-            String ExpectedTitle_F2 = scriptExecutor.readDataFile(strDataFileName,TestCase,rownumber, "Title_2");
-			
-			String actualTitle_F2 = webDriver.findElementByXPath("//h5[text()='Getting Started']").getText();
-			//h5[text()='Find Web Hosting']
-			//h5[text()='Getting Started']
-						
-			System.out.println(actualTitle_F1);
-			
-			WriteExcelDataFile(strDataFileName, rownumber, "Actual_Title1", actualTitle_F1);
-			if (ExpectedTitle_F1.equals(actualTitle_F1)) {
-				reporter.writeStepResult("MainTitle",
-						"Verify Title is present in the element", "Expected: "
-								+ ExpectedTitle_F1, "Pass", "Expected text is present",
-						true, webDriver);
-				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title1", "PASS");
-			} else {
-				reporter.writeStepResult("MainTitle", 
-						"Verify Title is present in the element", "Expected: "
-								+ ExpectedTitle_F1, "Fail",
-						"Expected text  is not present (Actual: "
-								+ actualTitle_F1 + ")", true, webDriver);
-				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title1", "FAIL");
-			}
-			
-			
-			WriteExcelDataFile(strDataFileName, rownumber, "Actual_Title2", actualTitle_F2);
-			if (ExpectedTitle_F2.equals(actualTitle_F2)) {
-				reporter.writeStepResult("MainTitle",
-						"Verify Title is present in the element", "Expected: "
-								+ ExpectedTitle_F2, "Pass", "Expected text is present",
-						true, webDriver);
-				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title2", "PASS");
-			} else {
-				reporter.writeStepResult("MainTitle", 
-						"Verify Title is present in the element", "Expected: "
-								+ ExpectedTitle_F2, "Fail",
-						"Expected text  is not present (Actual: "
-								+ actualTitle_F2 + ")", true, webDriver);
-				WriteExcelDataFile(strDataFileName, rownumber, "Result_Title2", "FAIL");
-			}
-			
-			
-			System.out.println("Application run sucessfully");
-			
-			/*String ExpectedTitle ="DevOps Test Flow";
-			String ActualTitle = webDriver.getTitle();
-			System.out.println(ActualTitle);
-			
-			if (ActualTitle.equals(ExpectedTitle))
-			{
-				System.out.println("Result is Pass");
-			}
-				else {
-					
+				ArrayList<WebElement> els =  (ArrayList<WebElement>)webDriver.findElements(By.xpath("//form[@name='formDetails']/div"));
 				
-				System.out.println("Result is Fail");
-			}*/
-			
+				
+				
+				System.out.println(els.size());
+				//highlightElement ();
+				int a = els.size();
+				
+				for(int i =2;  i<a;i++){
 					
-			/*WebElement element = webDriver.findElement(By.xpath("//h1[text()='DevOps Test Flow']"));
-			String strng = element.getText();
-			System.out.println(strng);
-			Assert.assertEquals("DevOps Test Flow", strng);*/
+					if(!(i==3))
+					{
+						
+					
+						
+						
+				 WebElement element  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+i+"]//div[1]/input"));	
+				
+				 WebElement getLabel  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+i+"]//div[2]/label"));
+				 highlightElement (webDriver,getLabel);
+				 System.out.println("Label ["+i+"], : "+getLabel.getText());
+				 //element.sendKeys();
+				// stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='OBAPosting_LocationNumber']", DataMap,"OBAPosting_LocationNumber", webDriver, "OBA");
+				 highlightElement (webDriver,element);
+				 Thread.sleep(2000);
+					}
+				}
+				
+											
+				//els[0]
 			
+			//List<WebElement> elements = webDriver.findElements(By.ByXPath("findElementByXPath", ".//*[contains(text(),'Log In')]", webDriver,"MSOL");
+			System.out.println("elements");
+			
+			//java.util.Iterator<WebElement> i = elements.iterator();
+			/*while(i.hasNext()) {
+			    WebElement row = i.next();
+			    System.out.println(row.getText());
+			} */
+								
+						
 					  
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -250,6 +226,16 @@ public class SampleTestApplication {
     	return (sdf.format(cal.getTime()));
     	
 	}
+
+	
+	
+		public void highlightElement(WebDriver driver, WebElement element) {
+		for (int i = 0; i < 2; i++)
+		{
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: red; border: 10px solid red;");
+		js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
+		}}
 
 	
 }

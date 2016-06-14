@@ -1649,6 +1649,7 @@ public class GLOWProfilesTesting{
 	                     
 	                 } else {
 	                     colElement = row.findElement(By.xpath(".//td[" + colIndex + "]"));
+	                     
 	                 }
 	                 colValues.add(colElement.getText().trim());
 	                 System.out.println(colElement.getText());
