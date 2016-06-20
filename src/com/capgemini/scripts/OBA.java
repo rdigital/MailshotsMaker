@@ -143,12 +143,13 @@ public class OBA {
 						
 				 WebElement element  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+i+"]//div[1]/input"));	
 				
-				 WebElement getLabel  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+i+"]//div[2]/label"));
-				 highlightElement (webDriver,getLabel);
-				 System.out.println("Label ["+i+"], : "+getLabel.getText());
-				 //element.sendKeys();
+				// WebElement getLabel  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+i+"]//div[2]/label"));
+				 //highlightElement (webDriver,getLabel);
+				 highlightElement(webDriver, element);
+				// System.out.println("Label ["+i+"], : "+getLabel.getText());
+				 element.sendKeys("asassasa");
 				// stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='OBAPosting_LocationNumber']", DataMap,"OBAPosting_LocationNumber", webDriver, "OBA");
-				 highlightElement (webDriver,element);
+				// highlightElement (webDriver,element);
 				 Thread.sleep(2000);
 					}
 				}

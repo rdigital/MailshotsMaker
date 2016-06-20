@@ -90,7 +90,7 @@ public class SampleTestApplication {
 			reporter.setStrBrowser(capabilities.getBrowserName());
 			reporter.addIterator(i);
 		//	CreateOutputfile();
-		     testcaseMain();
+		    testcaseMain();
 			//NextFunctionCall
 			WriteMaster.updateNextURL(TestCase,webDriver.getCurrentUrl());
 			reporter.closeIterator();
@@ -194,8 +194,7 @@ public class SampleTestApplication {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-				
-				
+						
 	}
 
 	

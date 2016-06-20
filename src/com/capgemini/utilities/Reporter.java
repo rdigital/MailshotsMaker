@@ -717,7 +717,8 @@ public static String browser;
 
 			} else {
 				aWriter.write("<a href =\"");
-				aWriter.write("file:///" + strScreenshot);
+				//aWriter.write("file:///" + strScreenshot);
+				aWriter.write("http://" + strScreenshot);
 				aWriter.write("\" target=\"_blank\">Screenshot</td>\n");
 
 			}
@@ -1057,9 +1058,10 @@ return sCurrentRowNumber;
 				//System.out.println(resultFolder);
 				//System.out.println(strDetails);
 
-				strReportFile = resultFolder + "\\" + strDetails + "_Report_" + time
+			strReportFile = resultFolder + "\\" + strDetails + "_Report_" + time
 						+ Math.random() + ".html";
-				System.out.println(strReportFile);
+				
+				
 				/*
 				 * System.clearProperty("reportFilePath");
 				 * System.setProperty("reportFilePath", strReportFile);
@@ -1232,8 +1234,11 @@ return sCurrentRowNumber;
 				 */
 				//System.out.println(resultFolder);
 				//System.out.println(strDetails);
-				strReportFile = resultFolder + "/" + strDetails + "_Report_" + time
-						+ Math.random() + ".html";
+				//strReportFile = resultFolder + "/" + strDetails + "_Report_" + time
+				//		+ Math.random() + ".html";
+				
+				strReportFile = resultFolder + "/" + strDetails + "_Report" + ".html";
+				
 				//System.out.println(strReportFile);
 				/*
 				 * System.clearProperty("reportFilePath");
