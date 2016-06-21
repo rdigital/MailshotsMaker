@@ -215,6 +215,7 @@ public static String browser;
 
 	public String now() {
 		String strScreenshotPath = strAbsolutePath + "/results/screenshot/";
+		//String strScreenshotPath = "../../../results/screenshot/";
 		Calendar cal = Calendar.getInstance();
 		month = cal.get(Calendar.MONTH) + 1;
 		day = cal.get(Calendar.DAY_OF_MONTH);
@@ -717,8 +718,12 @@ public static String browser;
 
 			} else {
 				aWriter.write("<a href =\"");
+				String strReplaceText =strScreenshot.replace(strScreenshot.substring(0, strScreenshot.indexOf("/")),"../../../../..");
+				System.out.println(strReplaceText);
 				//aWriter.write("file:///" + strScreenshot);
-				aWriter.write("http://" + strScreenshot);
+				
+			//	System.out.println("value of this " + strScreenshot.indexOf(strScreenshot));
+				aWriter.write(strReplaceText);
 				aWriter.write("\" target=\"_blank\">Screenshot</td>\n");
 
 			}
