@@ -59,6 +59,7 @@ import com.capgemini.executor.MasterReport;
 import com.capgemini.executor.New_Executioner;
 //import com.capgemini.executor.Executioner;
 import com.thoughtworks.selenium.Selenium;
+import org.apache.commons.io.FileUtils;
 
 import org.w3c.dom.Element;
 
@@ -689,6 +690,7 @@ public static String browser;
 		}
 
 		try {
+			
 			aWriter = new FileWriter(strReportFile, true);
 			/*aWriter.write("<tr class=\"list_table_tr\">");
 			*//*aWriter.write("<script type=\"text/javascript\" src=\"./pages/js/jquery-1.6.2.min.js\"></script>");
@@ -718,8 +720,9 @@ public static String browser;
 
 			} else {
 				aWriter.write("<a href =\"");
+				//dinesh vaidya 07/05/2016
 				String strReplaceText =strScreenshot.replace(strScreenshot.substring(0, strScreenshot.indexOf("/")),"../../../../..");
-				System.out.println(strReplaceText);
+			//	System.out.println(strReplaceText);
 				//aWriter.write("file:///" + strScreenshot);
 				
 			//	System.out.println("value of this " + strScreenshot.indexOf(strScreenshot));
@@ -818,10 +821,8 @@ public static String browser;
                          
             {
                           
-                    		
-                             sCurrentRowNumber=i;
-                             
-                             System.out.println("sCurrentRowNumber"+sCurrentRowNumber);
+                    	    sCurrentRowNumber=i;
+                            System.out.println("sCurrentRowNumber"+sCurrentRowNumber);
                             break;
                     
             }
@@ -837,8 +838,8 @@ return sCurrentRowNumber;
 
 	public void writeTestSumary(String scenarioId,String scenarioName, String scenarioBrowserName,
 			String scenarioExecute, String scenarioResult,String scenarioLinks) {
-		FileWriter aWriter = null;
-		String strComponent = null;
+		    FileWriter aWriter = null;
+		    String strComponent = null;
 		
 
 		// String strReportFile = System.getProperty("reportFilePath");
@@ -1188,7 +1189,55 @@ return sCurrentRowNumber;
 			System.out.println(browser);
 			
 		}
+		
+		// dinesh vaidya 11/07/2016
+		public void DeleteFileFolder(String path) {
+
+		    File file = new File(path);
+		    if(file.exists())
+		    {
+		        do{
+		            delete(file);
+		        }while(file.exists());
+		    }else
+		    {
+		        System.out.println("File or Folder not found : "+path);
+		    }
+
+		}
+		
+		//dinesh vaidya 11/07/2016
+		private void delete(File file)
+		{
+		    if(file.isDirectory())
+		    {
+		        String fileList[] = file.list();
+		        if(fileList.length == 0)
+		        {
+		          //  System.out.println("Deleting Directory : "+file.getPath());
+		            file.delete();
+		        }else
+		        {
+		            int size = fileList.length;
+		            for(int i = 0 ; i < size ; i++)
+		            {
+		                String fileName = fileList[i];
+		              //  System.out.println("File path : "+file.getPath()+" and name :"+fileName);
+		                String fullPath = file.getPath()+"/"+fileName;
+		                File fileOrFolder = new File(fullPath);
+		              //  System.out.println("Full Path :"+fileOrFolder.getPath());
+		                delete(fileOrFolder);
+		            }
+		        }
+		    }else
+		    {
+		       // System.out.println("Deleting file : "+file.getPath());
+		        file.delete();
+		    }
+		}
+		
 		public void ReportGenerator(String newBrowser) {
+			
 			FileWriter aWriter = null;
 			String strComponent = null;
 			// String strBrowser = exe.getExecutionBrowser();
@@ -1203,17 +1252,25 @@ return sCurrentRowNumber;
 			sPathTillUserName = strAbsolutepath + "/results/" + userName;
 			sPathTillMonth = sPathTillUserName + "/" + sMonthName;
 			sPathTillDate = sPathTillMonth + "/" + sDate;
+			
+			// dinesh vaidya 11/07/2016
+			//DeleteFileFolder(sPathTillUserName);
+
+			
 
 			try {
 				
 				strComponent = "BMC REMEDY";
 				String time = now();
 				File oFilePathTillUserName = new File(sPathTillUserName);
+				
+				
 				if (!oFilePathTillUserName.exists()) {
 					oFilePathTillUserName.mkdir();
 				}
 				File osPathTillMonth = new File(sPathTillMonth);
 				if (!osPathTillMonth.exists()) {
+											
 					osPathTillMonth.mkdir();
 				}
 				File osPathTilldate = new File(sPathTillDate);
@@ -1239,6 +1296,7 @@ return sCurrentRowNumber;
 				 */
 				//System.out.println(resultFolder);
 				//System.out.println(strDetails);
+				// commit by dinesh vaidya
 				//strReportFile = resultFolder + "/" + strDetails + "_Report_" + time
 				//		+ Math.random() + ".html";
 				
@@ -1271,7 +1329,6 @@ return sCurrentRowNumber;
 				aWriter.write("</head>");
 				aWriter.write("<script>");
 				
-
 				aWriter.write("$(document).ready(function(){");
 				aWriter.write("$(\"#tabs_environment,#tabs_plan,#tabs_set,#set_content_tabs\").tabs({");
 				aWriter.write("selected: 0,");
@@ -1333,9 +1390,7 @@ return sCurrentRowNumber;
 				aWriter.write("</ul>");
 				aWriter.write("<div id=\"tabs-set-1\"  class=\"f2\">");
 				aWriter.write("<div style=\"margin-top: 10px;\" id=\"style_div\">");
-
-				
-				
+							
 				aWriter.write("<table  style=\"width:100%;\">");
 				aWriter.write("<tr >");
 				aWriter.write("<td><b>Execution Date   </b></td>");

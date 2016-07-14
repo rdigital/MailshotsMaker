@@ -108,7 +108,9 @@ public class Images {
 
 		
 		reporter.CreateSummary("Cafe#"+browserName);
-		System.exit(0);
+		
+		//uncomments this while want to run individual 
+		//System.exit(0);
 	}
 	
 	public void executeTestcase(RemoteWebDriver rdriver,String host,String browser) throws Exception {		

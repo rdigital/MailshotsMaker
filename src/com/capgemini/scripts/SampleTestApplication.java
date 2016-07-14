@@ -170,27 +170,7 @@ public class SampleTestApplication {
 			
 			System.out.println("Application run sucessfully");
 			
-			/*String ExpectedTitle ="DevOps Test Flow";
-			String ActualTitle = webDriver.getTitle();
-			System.out.println(ActualTitle);
-			
-			if (ActualTitle.equals(ExpectedTitle))
-			{
-				System.out.println("Result is Pass");
-			}
-				else {
-					
-				
-				System.out.println("Result is Fail");
-			}*/
-			
-					
-			/*WebElement element = webDriver.findElement(By.xpath("//h1[text()='DevOps Test Flow']"));
-			String strng = element.getText();
-			System.out.println(strng);
-			Assert.assertEquals("DevOps Test Flow", strng);*/
-			
-					  
+							  
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

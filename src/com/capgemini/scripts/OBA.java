@@ -125,48 +125,56 @@ public class OBA {
 		try {
 			
 			
-				ArrayList<WebElement> els =  (ArrayList<WebElement>)webDriver.findElements(By.xpath("//form[@name='formDetails']/div"));
-				
-				
-				
-				System.out.println(els.size());
-				//highlightElement ();
-				int a = els.size();
-				
-				for(int i =2;  i<a;i++){
+			stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(), 'Accept cookies')]", webDriver,"OBA");
+			
+			stepExecutor.enterTextValue("findElementByName", "input", DataMap,"OBAPosting_LocationNumber", webDriver, "OBA");
+			
+			stepExecutor.enterTextValue("findElementByXPath", ".//*[@class='input-wrapper']//textarea", DataMap,"OBAPosting_LocationAddress", webDriver, "OBA");
+			
+			ArrayList<WebElement> els =  (ArrayList<WebElement>)webDriver.findElements(By.xpath("//form[@name='formDetails']/div"));
+			
+			int a = els.size();
+			for(int i =4;i<a;i++)
+			{
+				if(!(i==3)&&(i<5))
+				{
+					//WebElement element  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+i+"]//div[1]/input"));
+					stepExecutor.enterTextValue("findElementByXPath", "//form[@name='formDetails']/div["+i+"]//div[1]/input", DataMap,"Cust_Account_Number", webDriver, "OBA");
 					
-					if(!(i==3))
-					{
-						
-					
-						
-						
-				 WebElement element  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+i+"]//div[1]/input"));	
-				
-				// WebElement getLabel  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+i+"]//div[2]/label"));
-				 //highlightElement (webDriver,getLabel);
-				 highlightElement(webDriver, element);
-				// System.out.println("Label ["+i+"], : "+getLabel.getText());
-				 element.sendKeys("asassasa");
-				// stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='OBAPosting_LocationNumber']", DataMap,"OBAPosting_LocationNumber", webDriver, "OBA");
-				// highlightElement (webDriver,element);
-				 Thread.sleep(2000);
-					}
 				}
-				
-											
-				//els[0]
+	          	
 			
-			//List<WebElement> elements = webDriver.findElements(By.ByXPath("findElementByXPath", ".//*[contains(text(),'Log In')]", webDriver,"MSOL");
-			System.out.println("elements");
-			
-			//java.util.Iterator<WebElement> i = elements.iterator();
-			/*while(i.hasNext()) {
-			    WebElement row = i.next();
-			    System.out.println(row.getText());
-			} */
-								
-						
+	          //element
+	          
+	          int b=els.size();
+	  		for(int y=4;y<b;y++)
+	  		{
+	  			if(y==5)
+	  			{
+	  				//WebElement element1  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+y+"]//div[1]/input"));
+	  			//	highlightElement(driver, element1);
+	  				//element1.sendKeys("jacqueline.furtado@capgemini.com");
+	  				
+	  				stepExecutor.enterTextValue("findElementByXPath", "//form[@name='formDetails']/div["+y+"]//div[1]/input", DataMap,"Cust_EmailAddress", webDriver, "OBA");
+	  			}
+	  		}
+	  		int c=els.size();
+	  		for(int z=4;z<c;z++)
+	  		{
+	  			if(z==6)
+	  			{
+	  				//WebElement element2  = webDriver.findElement(By.xpath("//form[@name='formDetails']/div["+z+"]//div[1]/input"));
+	  				//highlightElement(driver, element2);
+	  				//element2.sendKeys("0000000000");
+	  				
+	  				stepExecutor.enterTextValue("findElementByXPath", "//form[@name='formDetails']/div["+z+"]//div[1]/input", DataMap,"Cust_PhoneNumber", webDriver, "OBA");
+	  			}
+	  		}
+	  		
+	  		webDriver.findElement(By.xpath("//button[contains(text(),'Continue')]")).click();
+
+			}	
+									
 					  
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -228,8 +236,7 @@ public class OBA {
     	
 	}
 
-	
-	
+		
 		public void highlightElement(WebDriver driver, WebElement element) {
 		for (int i = 0; i < 2; i++)
 		{

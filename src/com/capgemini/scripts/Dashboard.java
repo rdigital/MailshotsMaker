@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -238,128 +239,184 @@ public class Dashboard {
 			JavascriptExecutor jse4 = (JavascriptExecutor)webDriver;
 			jse4.executeScript("scroll(0, 270)"); // if the element is on bottom.
 			
-			//stepExecutor.clickElement("findElementByXPath", "html/body/div[2]/div[2]/lists-component/div/div[2]/my-lists-component/section/ul/li[1]/div/span", webDriver, "TWG");
-			
-			//stepExecutor.clickElement("findElementByXPath", ".//input[@type='checkbox'])[position()=1]", webDriver, "TWG");
-			stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
-			
-		
-			/*System.out.println("check box checked");
-			
-			JavascriptExecutor jse9 = (JavascriptExecutor)webDriver;
-			jse9.executeScript("scroll(0, 270)"); // if the element is on bottom.*/
-			
-			//click on Add to mailshot
-			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add to mailshot')]", webDriver,"Dashboard");
-			
-			System.out.println("Add to mailshot");
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/batch-tray-component/div/div/div/div[2]/button", webDriver,"Dashboard");
-			
-			System.out.println("Add to mailshot1");
-			Thread.sleep(6000);
-			
-			JavascriptExecutor jse8 = (JavascriptExecutor)webDriver;
-			jse8.executeScript("scroll(0, 270)"); // if the element is on bottom.
-			
-			System.out.println("moved on bottom");
-			
-           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
-			
-			System.out.println("Agrees To Terms And Conditions");	
-			
-			//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"Dashboard");
-			
-			//System.out.println("Click on Checkout button");	
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"Dashboard");
-			System.out.println("Click on Checkout button1");
-			
-			Thread.sleep(6000);
+			if (verify.verifyElementIsPresentCheck(webDriver, ".//a[contains(text(),'Create a new list')]", "xpath")){
+				List<WebElement> CustList = webDriver.findElements(By.xpath(".//*[@class='lists__my-lists']//li"));
+				//List<WebElement> CustList = webDriver.findElements(By.cssSelector("lists__my-lists--lists lists__my-lists__list"));
+				//System.out.println(CustList.size());
 						
-			//stepExecutor.launchApplication("Paypal_URL", DataMap, webDriver);
-			
-			//WebElement selectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
-			webDriver.switchTo().frame(webDriver.findElement(By.cssSelector("#injectedUnifiedLogin>iframe")));
-			stepExecutor.enterTextValue("findElementById", "email", DataMap,"Paypal_username", webDriver, "Dashboard");
-			System.out.println("pay pal email");
-			stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='password']", DataMap,"Paypal_Password", webDriver, "Dashboard");
-			System.out.println("pay pal password");
-			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Log In')]", webDriver,"Dashboard");
-			
-			System.out.println("click on pay pal button");
-			
-			webDriver.switchTo().defaultContent();
-			Thread.sleep(6000);
-			//stepExecutor.clickByCss("#confirmButtonTop", webDriver);
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "Dashboard");
-			System.out.println("Transaction done sucessfully");
-			
-			Thread.sleep(5000);
-			
-			stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Go to my dashboard')]", webDriver,"Dashboard");
-			
-			System.out.println("Go to my dashboard");
-			//stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/header/nav/div/a[2]", webDriver,"Dashboard");
-			
-			//stepExecutor.clickButton("findElementById", "confirmButtonTop", webDriver,"Dashboard");
-			
-		/*	//Create a new list address  button
-			//stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Create a new list')]", webDriver,"Dashboard");
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/div[2]/my-lists-component/section/div/a", webDriver,"Dashboard");
-			
-			System.out.println("new list address  button");
-			
-			//Enter Address Title
-			stepExecutor.enterTextValue("findElementById", "listname", DataMap,"NewAddress_Title", webDriver, "Dashboard");
+				if (CustList.size() >0)
+				{
+					stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
 					
-			System.out.println("Enter Address Title ");
-			//click on ok button
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[1]/div/div/form/span/button", webDriver,"Dashboard");
-			
-			JavascriptExecutor jse5 = (JavascriptExecutor)webDriver;
-			jse5.executeScript("scroll(0, 270)"); // if the element is on bottom.
-			
-			//stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add contact details individually')]", webDriver,"Dashboard");
-			
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[2]/upload-data-component/div/div/div[1]/a", webDriver,"Dashboard");
-			System.out.println("clicked on Add contact details individually");
+					
+					stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add to mailshot')]", webDriver,"MSM");
+					
+					System.out.println("Add to mailshot");
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/batch-tray-component/div/div/div/div[2]/button", webDriver,"MSM");
+					
+					System.out.println("Add to mailshot1");
+					Thread.sleep(6000);
+					
+					JavascriptExecutor jse8 = (JavascriptExecutor)webDriver;
+					jse8.executeScript("scroll(0, 270)"); // if the element is on bottom.
+					
+					System.out.println("moved on bottom");
+					
+		            stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+					
+					System.out.println("Agrees To Terms And Conditions");	
+					
+					//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSM");
+					
+					//System.out.println("Click on Checkout button");	
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MSM");
+					System.out.println("Click on Checkout button1");
+					
+					Thread.sleep(6000);
+								
+					//stepExecutor.launchApplication("Paypal_URL", DataMap, webDriver);
+					
+					//WebElement selectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
+					webDriver.switchTo().frame(webDriver.findElement(By.cssSelector("#injectedUnifiedLogin>iframe")));
+					stepExecutor.enterTextValue("findElementById", "email", DataMap,"Paypal_username", webDriver, "MSM");
+					System.out.println("pay pal email");
+					stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='password']", DataMap,"Paypal_Password", webDriver, "MSM");
+					System.out.println("pay pal password");
+					stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Log In')]", webDriver,"MSM");
+					
+					System.out.println("click on pay pal button");
+					
+					webDriver.switchTo().defaultContent();
+					Thread.sleep(6000);
+					//stepExecutor.clickByCss("#confirmButtonTop", webDriver);
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
+					System.out.println("Transaction done sucessfully");
+					
+					Thread.sleep(5000);
+					
+					stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Go to my dashboard')]", webDriver,"Dashboard");
+					
+					System.out.println("go to my dashboard");
+					
+				} 
+				}else {
+					//#ToDO
+					
+					stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Add customer details')]", webDriver,"MSM");
+					System.out.println("Add customer details");
+					//stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/div[2]/my-lists-component/section/div/div/a", webDriver,"MSM");
+					
+				//	System.out.println("Add customer details 1");
+				/*	//Create a new list address  button
+					stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Create a new list')]", webDriver,"MSM");
+					System.out.println("Create a new list");
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/div[2]/my-lists-component/section/div/a", webDriver,"MSM");
+					
+					System.out.println("new list address  button");*/
+					
+					//Enter Address Title
+					stepExecutor.enterTextValue("findElementById", "listname", DataMap,"NewAddress_Title", webDriver, "MSM");
+							
+					System.out.println("Enter Address Title ");
+					//click on ok button
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[1]/div/div/form/span/button", webDriver,"MSM");
+					
+					JavascriptExecutor jse5 = (JavascriptExecutor)webDriver;
+					jse5.executeScript("scroll(0, 270)"); // if the element is on bottom.
+					
+					stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Add contact details individually')]", webDriver,"MSM");
+					System.out.println("clicked on Add contact details individually via contains");
+					
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[2]/upload-data-component/div/div/div[1]/a", webDriver,"MSM");
+					
+					System.out.println("clicked on Add contact details individually");
 
-	        String winHandleBefore = webDriver.getWindowHandle();
+			        String winHandleBefore = webDriver.getWindowHandle();
 
-	        for(String winHandle : webDriver.getWindowHandles()){
-	        	webDriver.switchTo().window(winHandle);
-	        	        	
-	        }
-	        	        
-			//Entering Value in Title
-	        stepExecutor.enterTextValue("findElementById", "editTitle", DataMap,"EditTitle", webDriver, "Dashboard");
-	       // Entering Value in First name
-	        stepExecutor.enterTextValue("findElementById", "editFirstName", DataMap,"EditFirstName", webDriver, "Dashboard");
-	        //Entering Value in Last name
-	        stepExecutor.enterTextValue("findElementById", "editSurname", DataMap,"EditSurname", webDriver, "Dashboard");
-	         //Entering Value in Flat id
-	        stepExecutor.enterTextValue("findElementById", "editFlatId", DataMap,"EditFlatId", webDriver, "Dashboard");
-	       // Entering Value in House name
-	        stepExecutor.enterTextValue("findElementById", "editHouseName", DataMap,"EditHouseName", webDriver, "Dashboard");
-	        //Entering Value in House No
-	        stepExecutor.enterTextValue("findElementById", "editHouseNumber", DataMap,"EditHouseNumber", webDriver, "Dashboard");
-	        //Entering Value in Address one
-	        stepExecutor.enterTextValue("findElementById", "editAddress1", DataMap,"EditAddress1", webDriver, "Dashboard");
-		       // Entering Value in Post Code
-		    stepExecutor.enterTextValue("findElementById", "editPostCode", DataMap,"EditPostCode", webDriver, "Dashboard");
-		     
-		   // stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Save and close')]", webDriver,"Dashboard");
-		    
-		    stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/add-contact-component/div/div[1]/div[12]/button[3]", webDriver,"Dashboard");
-		    
-		    		  
-		  System.out.println("RT993");
-		  webDriver.switchTo().window(winHandleBefore);
-		  
-		  stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Back to Add data page')]", webDriver,"Dashboard");
-		  System.out.println("RT998");
-		  stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Find new customers')]", webDriver,"Dashboard");
+			        for(String winHandle : webDriver.getWindowHandles()){
+			        	webDriver.switchTo().window(winHandle);
+			        	        	
+			        }
+			        	        
+					//Entering Value in Title
+			        stepExecutor.enterTextValue("findElementById", "editTitle", DataMap,"EditTitle", webDriver, "MSM");
+			       // Entering Value in First name
+			        stepExecutor.enterTextValue("findElementById", "editFirstName", DataMap,"EditFirstName", webDriver, "MSM");
+			        //Entering Value in Last name
+			        stepExecutor.enterTextValue("findElementById", "editSurname", DataMap,"EditSurname", webDriver, "MSM");
+			         //Entering Value in Flat id
+			        stepExecutor.enterTextValue("findElementById", "editFlatId", DataMap,"EditFlatId", webDriver, "MSM");
+			       // Entering Value in House name
+			        stepExecutor.enterTextValue("findElementById", "editHouseName", DataMap,"EditHouseName", webDriver, "MSM");
+			        //Entering Value in House No
+			        stepExecutor.enterTextValue("findElementById", "editHouseNumber", DataMap,"EditHouseNumber", webDriver, "MSM");
+			        //Entering Value in Address one
+			        stepExecutor.enterTextValue("findElementById", "editAddress1", DataMap,"EditAddress1", webDriver, "MSM");
+				       // Entering Value in Post Code
+				    stepExecutor.enterTextValue("findElementById", "editPostCode", DataMap,"EditPostCode", webDriver, "MSM");
+				     
+				    stepExecutor.clickButton("findElementByXPath", ".//*[@class='btn btn--green confirm-add']", webDriver,"MSM");
+				    
+				    //stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/add-contact-component/div/div[1]/div[12]/button[3]", webDriver,"MSM");
+				    Thread.sleep(5000);
+				    		  
+				    
+				    webDriver.switchTo().window(winHandleBefore);
+				  
+				    stepExecutor.clickButton("findElementByXPath", ".//span[contains(text(),'Back to Add data page')]", webDriver,"MSM");
+					
+					Thread.sleep(5000);
+					
+					stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+					
+	                stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add to mailshot')]", webDriver,"MSM");
+					
+					
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/batch-tray-component/div/div/div/div[2]/button", webDriver,"MSM");
+					
+					
+					Thread.sleep(6000);
+					
+					JavascriptExecutor jse8 = (JavascriptExecutor)webDriver;
+					jse8.executeScript("scroll(0, 270)"); // if the element is on bottom.
+					
+									
+		           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+					
+									
+					//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSM");
+					
+					//System.out.println("Click on Checkout button");	
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MSM");
+					System.out.println("Click on Checkout button1");
+					
+					Thread.sleep(6000);
+								
+					//stepExecutor.launchApplication("Paypal_URL", DataMap, webDriver);
+					
+					//WebElement selectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
+					webDriver.switchTo().frame(webDriver.findElement(By.cssSelector("#injectedUnifiedLogin>iframe")));
+					stepExecutor.enterTextValue("findElementById", "email", DataMap,"Paypal_username", webDriver, "MSM");
+					
+					stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='password']", DataMap,"Paypal_Password", webDriver, "MSM");
+					
+					stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Log In')]", webDriver,"MSM");
+													
+					webDriver.switchTo().defaultContent();
+					Thread.sleep(6000);
+					//stepExecutor.clickByCss("#confirmButtonTop", webDriver);
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
+					System.out.println("Transaction done sucessfully");
+					
+					Thread.sleep(5000);
+					
+					
+					stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Go to my dashboard')]", webDriver,"Dashboard");
+					
+					System.out.println("Go to my dashboard");
 	      	  		
-			System.out.println("Test case run sucessfully ");*/
+			System.out.println("Test case run sucessfully ");
+				}
 		  
 		} catch (Exception e) {
 			e.printStackTrace();
