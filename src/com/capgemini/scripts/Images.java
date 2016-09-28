@@ -193,6 +193,7 @@ public class Images {
 		        }
 		        
 		        String FilePath = scriptExecutor.readDataFile(strDataFileName, "Images", rownumber, "Path");
+		        
 		        webDriver.findElement(By.id("image-upload")).sendKeys(FilePath);
 		        
 		       // stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div/my-images-component/upload-image-component/div[2]/div[2]", webDriver,"Images");

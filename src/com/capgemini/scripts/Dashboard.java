@@ -278,10 +278,13 @@ public class Dashboard {
 					
 					//WebElement selectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
 					webDriver.switchTo().frame(webDriver.findElement(By.cssSelector("#injectedUnifiedLogin>iframe")));
+					
 					stepExecutor.enterTextValue("findElementById", "email", DataMap,"Paypal_username", webDriver, "MSM");
 					System.out.println("pay pal email");
+					
 					stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='password']", DataMap,"Paypal_Password", webDriver, "MSM");
 					System.out.println("pay pal password");
+					
 					stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Log In')]", webDriver,"MSM");
 					
 					System.out.println("click on pay pal button");
@@ -289,7 +292,9 @@ public class Dashboard {
 					webDriver.switchTo().defaultContent();
 					Thread.sleep(6000);
 					//stepExecutor.clickByCss("#confirmButtonTop", webDriver);
+					stepExecutor.clickButton("findElementByXPath", ".//*[@id='Pay Now']", webDriver,"MSM");
 					stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
+					//stepExecutor.clickButton("findElementByXPath", ".//*[@id='Pay Now']", webDriver,"MSM");
 					System.out.println("Transaction done sucessfully");
 					
 					Thread.sleep(5000);
@@ -388,7 +393,7 @@ public class Dashboard {
 					
 					//System.out.println("Click on Checkout button");	
 					stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MSM");
-					System.out.println("Click on Checkout button1");
+					
 					
 					Thread.sleep(6000);
 								
@@ -396,6 +401,7 @@ public class Dashboard {
 					
 					//WebElement selectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
 					webDriver.switchTo().frame(webDriver.findElement(By.cssSelector("#injectedUnifiedLogin>iframe")));
+					
 					stepExecutor.enterTextValue("findElementById", "email", DataMap,"Paypal_username", webDriver, "MSM");
 					
 					stepExecutor.enterTextValue("findElementByXPath", ".//*[@id='password']", DataMap,"Paypal_Password", webDriver, "MSM");
@@ -408,14 +414,42 @@ public class Dashboard {
 					stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
 					System.out.println("Transaction done sucessfully");
 					
+					
+                     JavascriptExecutor jse10 = (JavascriptExecutor)driver;
+                     jse10.executeScript("arguments[0].click();", "html/body/div[1]/header/nav/ul/li[4]/a");
+						      	  		
+					//Thread.sleep(5000);
+					//stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Images')]", webDriver,"Images");
+				
+					
+					stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/header/nav/ul/li[4]/a", webDriver,"Images");
+					System.out.println("sucessfully");
 					Thread.sleep(5000);
 					
+				//	stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/campaign-list-component/div/div/span", webDriver,"Images");
+					stepExecutor.clickButton("findElementByXPath", ".//span[contains(text(),'Upload a new image')]", webDriver,"Images");
+														 
+					Thread.sleep(3000);
 					
-					stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Go to my dashboard')]", webDriver,"Dashboard");
+					 String winHandleBeforeimage = webDriver.getWindowHandle();
+
+				        for(String winHandle : webDriver.getWindowHandles()){
+				        	webDriver.switchTo().window(winHandle);
+				        	        	
+				        }
+				        
+				        String FilePath = scriptExecutor.readDataFile(strDataFileName, "Images", rownumber, "Path");
+				        webDriver.findElement(By.id("image-upload")).sendKeys(FilePath);
+				        
+				       // stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div/my-images-component/upload-image-component/div[2]/div[2]", webDriver,"Images");
+				        	  	  
+						  
+						  webDriver.switchTo().window(winHandleBeforeimage);
+						  stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Use this image')]", webDriver,"Images");
+						  Thread.sleep(6000);
+						  System.out.println("Image Uploaded sucessfully");
+				
 					
-					System.out.println("Go to my dashboard");
-	      	  		
-			System.out.println("Test case run sucessfully ");
 				}
 		  
 		} catch (Exception e) {

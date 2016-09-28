@@ -44,7 +44,7 @@ import com.thoughtworks.selenium.SeleniumException;
 /**
  * StepExecutor --- Class for the executing the steps in the script
  * 
- * @author Sunil Kumar
+ 
  */
 
 public class StepExecutor {

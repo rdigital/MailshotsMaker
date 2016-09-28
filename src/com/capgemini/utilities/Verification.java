@@ -11,7 +11,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 /**
  * Verification --- Class for verification of test steps using Webdriver
  * 
- * @author Prasad Joshi
+ 
  */
 
 public class Verification {

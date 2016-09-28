@@ -185,13 +185,18 @@ public class Lists {
 			
 			
 			//List<WebElement> CustList = webDriver.findElements(By.xpath(".//*[@class='lists__my-lists']//li"));
-			List<WebElement> CustList = webDriver.findElements(By.xpath(".//*[@class='lists__my-lists']//li"));
+			
+			List<WebElement> CustList = webDriver.findElements(By.xpath(".//*[@class='lists__my-lists--lists lists__my-lists__list']//li"));
+			
 			//List<WebElement> CustList = webDriver.findElements(By.cssSelector("lists__my-lists--lists lists__my-lists__list"));
 			System.out.println(CustList.size());
 			
 			if (CustList.size() >0)
-			{
-				stepExecutor.clickByCss(".lists__my-lists--lists lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+			{ //.//*[@class='lists__my-lists--lists lists__my-lists__list']//li[1]/div/span
+				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+				
+				Thread.sleep(5000);
+				
 			} else 
 			{
 				
@@ -244,22 +249,14 @@ public class Lists {
 			    
 			    stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/add-contact-component/div/div[1]/div[12]/button[3]", webDriver,"Dashboard");
 			    
-			    		  
+			 		  
 			  System.out.println("RT993");
 			  webDriver.switchTo().window(winHandleBefore);
 				
 			}
-					 
-	/*	for (WebElement element : CustList) {
-			System.out.println("ABCD");
-			
-		  
-		}*/
-			
-		/*	for (int i=0; i<10; i++) {
-				webDriver.findElement(By.xpath(".//*[@class='lists__rent-list']/ul/li["+i+"]"));
-				System.out.println(i);
-		    }*/
+		
+				 
+	
 			
 		}catch (Exception e) {
 			e.printStackTrace();
