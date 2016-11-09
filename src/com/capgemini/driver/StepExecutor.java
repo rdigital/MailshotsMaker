@@ -1315,6 +1315,8 @@ public class StepExecutor {
 					"Not able to click on Element", false, webDriver);
 		} finally {
 			return sFalg;
+			
+			
 		}
 
 	}

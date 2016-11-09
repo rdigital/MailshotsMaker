@@ -114,6 +114,7 @@ public class CreateDriver {
 				System.setProperty("webdriver.chrome.driver",
 						"./data/chromedriver.exe");
 				
+								
 				String downloadpath = strDataPath;
 				System.out.println(downloadpath);
 
@@ -214,11 +215,11 @@ public class CreateDriver {
 				return safariDriver;
 			} else if (strBrowserType.equalsIgnoreCase("chrome")) {
 
-			//	System.setProperty("webdriver.chrome.driver",
-			//			"./data/chromedriver.exe");
-				
 				System.setProperty("webdriver.chrome.driver",
-									"D://Jar//data//chromedriver.exe");
+						"./data/chromedriver.exe");
+				
+				/*System.setProperty("webdriver.chrome.driver",
+									"D:\\Users\\dvaidya\\workspace\\DL\\data\\chromedriver.exe");*/
 				
 				String downloadpath = strDataPath;
 				System.out.println(downloadpath);
