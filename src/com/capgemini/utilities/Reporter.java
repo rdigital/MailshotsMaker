@@ -721,12 +721,12 @@ public static String browser;
 			} else {
 				aWriter.write("<a href =\"");
 				//dinesh vaidya 07/05/2016
-				String strReplaceText =strScreenshot.replace(strScreenshot.substring(0, strScreenshot.indexOf("/")),"../../../../..");
+				//String strReplaceText =strScreenshot.replace(strScreenshot.substring(0, strScreenshot.indexOf("/")),"../../../../..");
 			//	System.out.println(strReplaceText);
-				//aWriter.write("file:///" + strScreenshot);
+				aWriter.write("file:///" + strScreenshot);
 				
 			//	System.out.println("value of this " + strScreenshot.indexOf(strScreenshot));
-				aWriter.write(strReplaceText);
+				//aWriter.write(strReplaceText);
 				aWriter.write("\" target=\"_blank\">Screenshot</td>\n");
 
 			}
@@ -1242,51 +1242,55 @@ return sCurrentRowNumber;
 			String strComponent = null;
 			// String strBrowser = exe.getExecutionBrowser();
 			String strOSName = System.getProperty("os.name");
-
-			Calendar cal = Calendar.getInstance();
-			int iMonth = cal.get(Calendar.MONTH);
-			String sMonthName = monthName[iMonth];
-			String userName = System.getProperty("user.name");
-			SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-			String sDate = sdf.format(cal.getTime());
-			sPathTillUserName = strAbsolutepath + "/results/" + userName;
-			sPathTillMonth = sPathTillUserName + "/" + sMonthName;
-			sPathTillDate = sPathTillMonth + "/" + sDate;
 			
-			// dinesh vaidya 11/07/2016
+			// commit by dinesh on 11/11/2016
+
+/*		Calendar cal = Calendar.getInstance();
+//			int iMonth = cal.get(Calendar.MONTH);
+//			String sMonthName = monthName[iMonth];
+//			String userName = System.getProperty("user.name");
+//			SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+//			String sDate = sdf.format(cal.getTime());
+//			sPathTillUserName = strAbsolutepath + "/results/" + userName;
+//			sPathTillMonth = sPathTillUserName + "/" + sMonthName;
+//			sPathTillDate = sPathTillMonth + "/" + sDate;*/
+			
+			// commit by dinesh on 11/11/2016 
+			//dinesh vaidya 11/07/2016
 			//DeleteFileFolder(sPathTillUserName);
 
 			
 
 			try {
 				
-				strComponent = "BMC REMEDY";
-				String time = now();
-				File oFilePathTillUserName = new File(sPathTillUserName);
-				
-				
-				if (!oFilePathTillUserName.exists()) {
-					oFilePathTillUserName.mkdir();
-				}
-				File osPathTillMonth = new File(sPathTillMonth);
-				if (!osPathTillMonth.exists()) {
-											
-					osPathTillMonth.mkdir();
-				}
-				File osPathTilldate = new File(sPathTillDate);
-				if (!osPathTilldate.exists()) {
-					osPathTilldate.mkdir();
-				}
-				File resultFolder = new File(sPathTillDate + "/" + strDetails);
-				if (!resultFolder.exists()) {
-					resultFolder.mkdir();
-				}
-				File cssFile = new File(sPathTillDate + "/" + strDetails + "/pages");
-				if (!cssFile.exists()) {
-					FileUtils.copyDirectory(new File(strAbsolutepath
-							+ "/results/pages"), new File(sPathTillDate + "/"
-							+ strDetails + "/pages"));
-				}
+				//* commit by dinesh on 11/11/2016 
+//				strComponent = "BMC REMEDY";
+//				String time = now();
+//				File oFilePathTillUserName = new File(sPathTillUserName);
+//				
+//				
+//				if (!oFilePathTillUserName.exists()) {
+//					oFilePathTillUserName.mkdir();
+//				}
+//				File osPathTillMonth = new File(sPathTillMonth);
+//				if (!osPathTillMonth.exists()) {
+//											
+//					osPathTillMonth.mkdir();
+//				}
+//				File osPathTilldate = new File(sPathTillDate);
+//				if (!osPathTilldate.exists()) {
+//					osPathTilldate.mkdir();
+//				}
+//				File resultFolder = new File(sPathTillDate + "/" + strDetails);
+//				if (!resultFolder.exists()) {
+//					resultFolder.mkdir();
+//				}
+//				File cssFile = new File(sPathTillDate + "/" + strDetails + "/pages");
+//				if (!cssFile.exists()) {
+//					FileUtils.copyDirectory(new File(strAbsolutepath
+//							+ "/results/pages"), new File(sPathTillDate + "/"
+//							+ strDetails + "/pages"));
+//				}
 
 				// String strReportFile = resultFolder + "/" + strDetails +
 				// "_Report_"
@@ -1295,11 +1299,13 @@ return sCurrentRowNumber;
 				 * "_Report_" + time + Math.random() + ".html");
 				 */
 				//System.out.println(resultFolder);
-				//System.out.println(strDetails);
+				//System.out.println(strDetails);*/
+				
+				// commit by dinesh on 11/11/2016 
 				// commit by dinesh vaidya
 				//strReportFile = resultFolder + "/" + strDetails + "_Report_" + time
 				//		+ Math.random() + ".html";
-				
+				String resultFolder = strAbsolutepath + "/results/";
 				strReportFile = resultFolder + "/" + strDetails + "_Report" + ".html";
 				
 				//System.out.println(strReportFile);
@@ -1310,19 +1316,22 @@ return sCurrentRowNumber;
 				// String strReportFileName = strDetails + "_Report_" + time +
 				// ".html";
 				
-				aWriter = new FileWriter(strReportFile, true);
+				// commit by dinesh on 11/11/2016 
+				//aWriter = new FileWriter(strReportFile, true);
+				// new line by dinesh on 11/11/2016 
+				aWriter = new FileWriter(strReportFile);
 			
 				aWriter.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> ");
 				aWriter.write("<html>");
 				aWriter.write("<head>");
 
-				aWriter.write("<link type=\"text/css\" href=\"./pages/css/themes/ui-lightness/jquery-ui-1.8.16.custom.css\" rel=\"Stylesheet\" />");
-				aWriter.write("<link type=\"text/css\" href=\"./pages/css/myStyle.css\" rel=\"Stylesheet\" />");
+				aWriter.write("<link type=\"text/css\" href=\"pages/css/themes/ui-lightness/jquery-ui-1.8.16.custom.css\" rel=\"Stylesheet\" />");
+				aWriter.write("<link type=\"text/css\" href=\"pages/css/myStyle.css\" rel=\"Stylesheet\" />");
 				
 				
-				aWriter.write("<script type=\"text/javascript\" src=\"./pages/js/jquery-1.6.2.min.js\"></script>");
-				aWriter.write("<script type=\"text/javascript\" src=\"./pages/js/jquery-ui-1.8.16.custom.min.js\"></script>");
-				aWriter.write("<script type=\"text/javascript\" src=\"./pages/js/my.js\"></script>");
+				aWriter.write("<script type=\"text/javascript\" src=\"pages/js/jquery-1.6.2.min.js\"></script>");
+				aWriter.write("<script type=\"text/javascript\" src=\"pages/js/jquery-ui-1.8.16.custom.min.js\"></script>");
+				aWriter.write("<script type=\"text/javascript\" src=\"pages/js/my.js\"></script>");
 				/*aWriter.write("<script>$(document).ready(function(){$(\".toggle\").click(function() {$(\".list_table_tr1\").show();});});</script>");
 				aWriter.write("<script>$(document).ready(function(){$(\".toggle_collapse\").click(function() {$(\".list_table_tr1\").hide();});});</script>");
 				*/
