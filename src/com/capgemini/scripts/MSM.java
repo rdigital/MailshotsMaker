@@ -179,15 +179,16 @@ public class MSM {
 		stepExecutor.launchApplication("URL", DataMap, webDriver);
 				
 		webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
 		CookieSubmitfunaction();
+		
+		//stepExecutor.clickButton("findElementById", "cookie_submit", webDriver, "MSM");
 			
 		try {
 			
 			//Thread.sleep(1000);	
 			//stepExecutor.clickButton("findElementById", "cookie_submit", webDriver,"MSM");
 			
-			//LoginDetails();
+			LoginDetails();
 			
 			//Thread.sleep(2000);
 			
@@ -298,7 +299,7 @@ public class MSM {
 			scrollwindow (0, 200);
 					
 			//click on Add address details button
-			AddressDetails();
+			Clickon_AddressDetails_Button();
 			
 					
 		    Thread.sleep(3000);
@@ -321,7 +322,7 @@ public class MSM {
 				highlightelelements(webDriver, ".//button[contains(text(),'Add to mailshot')]");
 				stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Add to mailshot')]", webDriver,"MSM");
 				
-				System.out.println("Add to mailshot");
+				System.out.println("Click on Add to mailshot");
 				//stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div[2]/lists-component/div/batch-tray-component/div/div/div/div[2]/button", webDriver,"MSM");
 				
 				
@@ -365,7 +366,7 @@ public class MSM {
 				
 			  //  Thread.sleep(6000);
 				
-				//stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "MSM");
+			//stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "MSM");
 			//	stepExecutor.clickByCss("#confirmButtonTop", webDriver);
 				
 			//	stepExecutor.clickButton("findElementByXPath", ".//*[@value ='Pay Now']", webDriver, "MSM");
@@ -373,49 +374,7 @@ public class MSM {
 				//stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
 				PayPal_PayNowClickButton();
 				
-				System.out.println("Transaction done sucessfully");
-				
-				Thread.sleep(6000);
-							
-				LogoutAplication();
-				
-				LoginDetails();
-				
-				//Image Functionality 
-				
-			    Images();
-			     
-				Thread.sleep(3000);
-				
-				LogoutAplication();
-				
-				// Log in details 
-				LoginDetails();
-				 
-				 //Lists Functionality 
-					  
-				Lists();
-				 
-				Thread.sleep(3000);
-				
-				LogoutAplication();
-				
-				// Log in details 
-				LoginDetails();
-				
-				// Dashboard
-				DashBoard();
-					 
-			    Thread.sleep(3000);
-
-			//	LoginDetails();
-				MyProfile_MyOrders();
-				
-				LogoutAplication();
-				 
-				System.out.println("The process completed sucessfully ");
-				 				 
-				//stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Go to my dashboard')]", webDriver,"Dashboard");
+		
 										
 			} 
 			}else {
@@ -450,27 +409,11 @@ public class MSM {
 		        	webDriver.switchTo().window(winHandle);
 		        	        	
 		        }
-		        	        
-				//Entering Value in Title
-		        stepExecutor.enterTextValue("findElementById", "editTitle", DataMap,"EditTitle", webDriver, "MSM");
-		       // Entering Value in First name
-		        stepExecutor.enterTextValue("findElementById", "editFirstName", DataMap,"EditFirstName", webDriver, "MSM");
-		        //Entering Value in Last name
-		        stepExecutor.enterTextValue("findElementById", "editSurname", DataMap,"EditSurname", webDriver, "MSM");
-		         //Entering Value in Flat id
-		        stepExecutor.enterTextValue("findElementById", "editFlatId", DataMap,"EditFlatId", webDriver, "MSM");
-		       // Entering Value in House name
-		        stepExecutor.enterTextValue("findElementById", "editHouseName", DataMap,"EditHouseName", webDriver, "MSM");
-		        //Entering Value in House No
-		        stepExecutor.enterTextValue("findElementById", "editHouseNumber", DataMap,"EditHouseNumber", webDriver, "MSM");
-		        //Entering Value in Address one
-		        stepExecutor.enterTextValue("findElementById", "editAddress1", DataMap,"EditAddress1", webDriver, "MSM");
-			       // Entering Value in Post Code
-			    stepExecutor.enterTextValue("findElementById", "editPostCode", DataMap,"EditPostCode", webDriver, "MSM");
-			     
-			    stepExecutor.clickButton("findElementByXPath", ".//*[@class='btn btn--green confirm-add']", webDriver,"MSM");
-			    
-			    //stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/add-contact-component/div/div[1]/div[12]/button[3]", webDriver,"MSM");
+		        	
+		       // Capturing add address details function 
+		        AddressDetails();
+		        
+				//stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/add-contact-component/div/div[1]/div[12]/button[3]", webDriver,"MSM");
 			    Thread.sleep(5000);
 			    		  
 			    
@@ -493,6 +436,12 @@ public class MSM {
 				Thread.sleep(6000);
 				
 				scrollwindow (0, 270);
+				
+	            String PrintDeliveryvalue = scriptExecutor.readDataFile(strDataFileName, TestCase, rownumber, "PrintDelivery");
+				
+		    	new Select(webDriver.findElementByXPath(".//*[@id='postalOptions']")).selectByVisibleText(PrintDeliveryvalue);
+				
+				Thread.sleep(4000);
 									
 								
 	           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
@@ -510,10 +459,12 @@ public class MSM {
 				PaypalPaymentDetails();
 				
 				Thread.sleep(6000);
-				stepExecutor.clickByCss("#confirmButtonTop", webDriver);
 				
-				stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
-				System.out.println("Transaction done sucessfully");
+				PayPal_PayNowClickButton();
+				/*stepExecutor.clickByCss("#confirmButtonTop", webDriver);
+				
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");*/
+			/*	System.out.println("Transaction done sucessfully");
 				
 				Thread.sleep(6000);
 				
@@ -526,7 +477,7 @@ public class MSM {
 				LogoutAplication();
 				
 				LoginDetails();
-								
+											
 				Thread.sleep(3000);
 				
 				Lists();
@@ -544,13 +495,9 @@ public class MSM {
 			    Thread.sleep(3000);
 			    
                 LogoutAplication();
-				
-				//LoginDetails();
-							
-				
-				//LogoutAplication();
+						
 				 
-			 System.out.println("The Process completed sucessfully");
+			 System.out.println("The Process completed sucessfully");*/
 					
 			  										
 			}
@@ -686,12 +633,8 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	
 	//click on Add address details button
 	
-	AddressDetails();
+	Clickon_AddressDetails_Button();
 	
-	/*highlightelelements(webDriver,".//*[contains(text(),'Add address details')]");
-	stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add address details')]", webDriver,"Dashboard");*/
-	
-	//stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[1]/div[2]/div/div/form/button", webDriver,"Dashboard");
 	
 	Thread.sleep(3000);
 	
@@ -793,6 +736,9 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	    	stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/header/nav/ul/li[4]/a", webDriver,"MSM");
 			
 			Thread.sleep(4000);
+	    	
+	    	/*(new WebDriverWait(webDriver, 50))
+			.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='library-image-inner']")));*/
 			
 		  List<WebElement> Imagelist = webDriver.findElements(By.xpath(".//*[@class='library-image-inner']"));
 		
@@ -846,7 +792,10 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		
 		try {
 			stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Lists')]", webDriver,"Lists");
-			Thread.sleep(5000);
+			//Thread.sleep(5000);
+			
+			(new WebDriverWait(webDriver, 30))
+			.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='lists__my-lists--lists lists__my-lists__list']//li")));
 			
 			//ArrayList<WebElement> CustList = (ArrayList<WebElement>)webDriver.findElements(By.cssSelector("lists__my-lists--lists lists__my-lists__list"));
 			//System.out.println(CustList.size());
@@ -916,12 +865,75 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	try {
 		
 		Thread.sleep(6000);
+		/*WebDriverWait tempWait = new WebDriverWait(webDriver, 15);
+		tempWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@value ='Pay Now']")));
+		tempWait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@value ='Pay Now']")));
+		tempWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@value ='Pay Now']")));*/
 		
 		stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "MSM");
 		
-	  //  stepExecutor.clickButton("findElementByXPath", ".//*[@value ='Pay Now']", webDriver, "MSM");
+	   //  stepExecutor.clickButton("findElementByXPath", ".//*[@value ='Pay Now']", webDriver, "MSM");
+		Thread.sleep(6000);
 		
+		WebElement aftvalue = webDriver.findElement(By.xpath(".//*[@class='heading02 heading02_no-margin-top']"));
 		
+		String valuetaken = aftvalue.getText();
+		
+       //  WebElement ReturnMerchant = webDriver.findElement(By.xpath(".//*[contains(text(),'Return to Merchant')]"));
+		
+		//String valueReturnMerchant = ReturnMerchant.getText();
+		
+		//System.out.println("Value\t" + valueReturnMerchant);
+		
+		if(!valuetaken.contains("Thank you,"))
+		{
+			System.out.println("Might may be there was an error from the PayPal side");
+			
+		}/*else if (!valueReturnMerchant.contains("Return to Merchant"))
+		{
+			System.out.println("Might may be there was an error from the PayPal side");
+			
+						
+		}*/else {
+			  System.out.println("Order generated and transaction done sucessfully");
+				
+				Thread.sleep(6000);
+				
+				LogoutAplication();
+				
+				LoginDetails();
+				
+				Images();
+				
+				LogoutAplication();
+				
+				LoginDetails();
+											
+				Thread.sleep(3000);
+				
+				Lists();
+							
+	            Thread.sleep(3000);
+	            
+	        	LogoutAplication();
+	        	
+				LoginDetails();
+				
+			    DashBoard();
+			    
+			    MyProfile_MyOrders();
+					 
+			    Thread.sleep(3000);
+			    
+	            LogoutAplication();
+						
+				 
+			 System.out.println("Sucessfully logout from the application ");
+			 
+			
+		}
+		
+								
 	} catch (Exception e) {
 		// TODO: handle exception
 		
@@ -936,20 +948,12 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			
 				WebElement e1 = webDriver.findElementById("cookie_submit");
 			
-			if(e1 != null)
-			{
 				stepExecutor.clickButton("findElementById", "cookie_submit", webDriver, "MSM");
-				LoginDetails();
-			}else
-			
-			{
-				LoginDetails();
-			}
-			
+				//LoginDetails();
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
-		}
+	}
 	
 
 	
@@ -1005,13 +1009,44 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	
 	//click on Add address details button
 	
-	public void AddressDetails () throws InterruptedException
+	public void Clickon_AddressDetails_Button () throws InterruptedException
 	{
 		try {
 			
             highlightelelements(webDriver, ".//*[contains(text(),'Add address details')]");
 			
 			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add address details')]", webDriver,"MSM");
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	///Funaction 
+	public void AddressDetails () throws InterruptedException
+	{
+		try {
+			
+			//Entering Value in Title
+	        stepExecutor.enterTextValue("findElementById", "editTitle", DataMap,"EditTitle", webDriver, "MSM");
+	       // Entering Value in First name
+	        stepExecutor.enterTextValue("findElementById", "editFirstName", DataMap,"EditFirstName", webDriver, "MSM");
+	        //Entering Value in Last name
+	        stepExecutor.enterTextValue("findElementById", "editSurname", DataMap,"EditSurname", webDriver, "MSM");
+	         //Entering Value in Flat id
+	        stepExecutor.enterTextValue("findElementById", "editFlatId", DataMap,"EditFlatId", webDriver, "MSM");
+	       // Entering Value in House name
+	        stepExecutor.enterTextValue("findElementById", "editHouseName", DataMap,"EditHouseName", webDriver, "MSM");
+	        //Entering Value in House No
+	        stepExecutor.enterTextValue("findElementById", "editHouseNumber", DataMap,"EditHouseNumber", webDriver, "MSM");
+	        //Entering Value in Address one
+	        stepExecutor.enterTextValue("findElementById", "editAddress1", DataMap,"EditAddress1", webDriver, "MSM");
+		       // Entering Value in Post Code
+		    stepExecutor.enterTextValue("findElementById", "editPostCode", DataMap,"EditPostCode", webDriver, "MSM");
+		     
+		    stepExecutor.clickButton("findElementByXPath", ".//*[@class='btn btn--green confirm-add']", webDriver,"MSM");
 			
 			
 		} catch (Exception e) {
@@ -1031,7 +1066,9 @@ public void MyProfile_MyOrders() throws InterruptedException
 		  highlightelelements(webDriver, ".//a[contains(text(),'My orders')]");
 		    stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'My orders')]", webDriver, "MSM");
 		    
-		    Thread.sleep(3000);
+		  //  Thread.sleep(3000);
+			(new WebDriverWait(webDriver, 30))
+			.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[contains(text(),'Profile')]")));
 		    
 		    highlightelelements(webDriver, ".//a[contains(text(),'Profile')]");
 			stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Profile')]", webDriver, "MSM");

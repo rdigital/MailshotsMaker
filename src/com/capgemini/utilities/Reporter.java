@@ -320,7 +320,7 @@ public static String browser;
 			aWriter.write("<body>");
 			aWriter.write("<div class=\"page_container\">");
 			aWriter.write("<div class=\"head\">");
-			aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/logo160.gif\">");
+			aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/royal-mail.gif\">");
 			aWriter.write("</div>");
 			aWriter.write("<div class=\"content\">");
 			aWriter.write("<table class=\"content_table\" cellpadding=\"0\" cellspacing=\"0\">");
@@ -1117,7 +1117,7 @@ return sCurrentRowNumber;
 				aWriter.write("<body>");
 				aWriter.write("<div class=\"page_container\">");
 				aWriter.write("<div class=\"head\">");
-				aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/logo160.gif\">");
+				aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/royal-mail.gif\">");
 				aWriter.write("</div>");
 				aWriter.write("<div class=\"content\">");
 				aWriter.write("<table class=\"content_table\" cellpadding=\"0\" cellspacing=\"0\">");
@@ -1245,15 +1245,15 @@ return sCurrentRowNumber;
 			
 			// commit by dinesh on 11/11/2016
 
-/*		Calendar cal = Calendar.getInstance();
-//			int iMonth = cal.get(Calendar.MONTH);
+         	Calendar cal = Calendar.getInstance();
+ //		int iMonth = cal.get(Calendar.MONTH);
 //			String sMonthName = monthName[iMonth];
 //			String userName = System.getProperty("user.name");
-//			SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-//			String sDate = sdf.format(cal.getTime());
+         	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+			String sDate = sdf.format(cal.getTime());
 //			sPathTillUserName = strAbsolutepath + "/results/" + userName;
 //			sPathTillMonth = sPathTillUserName + "/" + sMonthName;
-//			sPathTillDate = sPathTillMonth + "/" + sDate;*/
+        	sPathTillDate = sPathTillMonth + "/" + sDate;
 			
 			// commit by dinesh on 11/11/2016 
 			//dinesh vaidya 11/07/2016
@@ -1385,7 +1385,7 @@ return sCurrentRowNumber;
 				aWriter.write("<body>");
 				aWriter.write("<div class=\"page_container\">");
 				aWriter.write("<div class=\"head\">");
-				aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/logo160.gif\">");
+				aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/royal-mail.gif\">");
 				aWriter.write("</div>");
 				aWriter.write("<div class=\"content\">");
 				/*aWriter.write("<table class=\"content_table\" cellpadding=\"0\" cellspacing=\"0\">");
