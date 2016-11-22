@@ -320,7 +320,7 @@ public static String browser;
 			aWriter.write("<body>");
 			aWriter.write("<div class=\"page_container\">");
 			aWriter.write("<div class=\"head\">");
-			aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/royal-mail.gif\">");
+			aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/logo160.gif\">");
 			aWriter.write("</div>");
 			aWriter.write("<div class=\"content\">");
 			aWriter.write("<table class=\"content_table\" cellpadding=\"0\" cellspacing=\"0\">");
@@ -1117,7 +1117,7 @@ return sCurrentRowNumber;
 				aWriter.write("<body>");
 				aWriter.write("<div class=\"page_container\">");
 				aWriter.write("<div class=\"head\">");
-				aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/royal-mail.gif\">");
+				aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/logo160.gif\">");
 				aWriter.write("</div>");
 				aWriter.write("<div class=\"content\">");
 				aWriter.write("<table class=\"content_table\" cellpadding=\"0\" cellspacing=\"0\">");
@@ -1240,7 +1240,7 @@ return sCurrentRowNumber;
 			
 			FileWriter aWriter = null;
 			String strComponent = null;
-			// String strBrowser = exe.getExecutionBrowser();
+			String strBrowser = exe.getExecutionBrowser();
 			String strOSName = System.getProperty("os.name");
 			
 			// commit by dinesh on 11/11/2016
@@ -1265,7 +1265,7 @@ return sCurrentRowNumber;
 				
 				//* commit by dinesh on 11/11/2016 
 //				strComponent = "BMC REMEDY";
-//				String time = now();
+				String time = now();
 //				File oFilePathTillUserName = new File(sPathTillUserName);
 //				
 //				
@@ -1385,7 +1385,7 @@ return sCurrentRowNumber;
 				aWriter.write("<body>");
 				aWriter.write("<div class=\"page_container\">");
 				aWriter.write("<div class=\"head\">");
-				aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/royal-mail.gif\">");
+				aWriter.write("<img alt=\"Capgemini\" src=\"./pages/images/logo160.gif\">");
 				aWriter.write("</div>");
 				aWriter.write("<div class=\"content\">");
 				/*aWriter.write("<table class=\"content_table\" cellpadding=\"0\" cellspacing=\"0\">");
