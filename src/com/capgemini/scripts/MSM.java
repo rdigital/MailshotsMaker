@@ -174,11 +174,11 @@ public class MSM {
 	public void testcaseMain() throws InterruptedException, BiffException,
 	Exception {
 		
-	//	initilize(webDriver,6000);
 		
 		stepExecutor.launchApplication("URL", DataMap, webDriver);
 				
 		webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		CookieSubmitfunaction();
 		
 		//stepExecutor.clickButton("findElementById", "cookie_submit", webDriver, "MSM");
@@ -192,7 +192,7 @@ public class MSM {
 			
 			//Thread.sleep(2000);
 			
-			String Act_home_title = scriptExecutor.readDataFile(strDataFileName, TestCase, rownumber, "Act_home_title");
+		/*	String Act_home_title = scriptExecutor.readDataFile(strDataFileName, TestCase, rownumber, "Act_home_title");
 			String Exp_home_title = webDriver.findElement(By.cssSelector(".logo")).getText();
 			
 			WriteExcelDataFile(strDataFileName, rownumber, "Exp_home_title", Exp_home_title);
@@ -207,7 +207,14 @@ public class MSM {
 			}
 			
 								
-			Thread.sleep(4000);		
+			//Thread.sleep(4000);
+			
+						
+			webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+
+			(new WebDriverWait(webDriver, 30))
+			.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[contains(text(),'Mailshots')]")));
+			webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 			
 		//	highlightelelements(webDriver, elementpath);
@@ -227,32 +234,32 @@ public class MSM {
 			//waitcondition(wait, ".//span[contains( text(),'New Mailshot')]");
 			
 			//click on  New mailshot
-			List<WebElement> MailshotList = webDriver.findElements(By.xpath(".//*[@class='content-box list__empty']"));
-			//System.out.println("Element found");
+		List<WebElement> MailshotList = webDriver.findElements(By.xpath(".//*[@class='content-box list__empty']"));
+			//System.out.println("Element found");*/
 			
-			if (MailshotList.size() >0)
+		if (MailshotList.size() >0)
 			{			
 				highlightelelements(webDriver, ".//span[contains(text(), 'Create your first mailshot')]");
 				
-				stepExecutor.clickButton("findElementByXPath", ".//span[contains(text(), 'Create your first mailshot')]", webDriver, "MailshotMaker");
+				//stepExecutor.clickButton("findElementByXPath", ".//span[contains(text(), 'Create your first mailshot')]", webDriver, "MailshotMaker");
 				
 				//Funaction included Mailshots name, create design, quick design  steps
-				FormatSelection();
+				//FormatSelection();
 				
-				stepExecutor.clickButton("findElementByXPath", "html/body/editor-component/onboarding-component/div/div/div[2]/a", webDriver, "MailshotMaker");
+				//stepExecutor.clickButton("findElementByXPath", "html/body/editor-component/onboarding-component/div/div/div[2]/a", webDriver, "MailshotMaker");
 				
-				stepExecutor.clickButton("findElementByXPath", "html/body/editor-component/onboarding-component/div/div/div[2]/a", webDriver, "MailshotMaker");
+				//stepExecutor.clickButton("findElementByXPath", "html/body/editor-component/onboarding-component/div/div/div[2]/a", webDriver, "MailshotMaker");
 				
-				stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Got it')]", webDriver, "MailshotMaker");
+				//stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Got it')]", webDriver, "MailshotMaker");
 				
 				//Funaction include back and done button click steps 
-				FormatSelection_afterNextsteps();
+			//	FormatSelection_afterNextsteps();
 				
 				stepExecutor.clickButton("findElementByXPath", ".//*[@class='onboarding-button']/a", webDriver, "MailshotMaker");
 				
 
 				//click on Add address details button
-				Clickon_AddressDetails_Button();
+				//Clickon_AddressDetails_Button();
 				
 			}else {
 				
@@ -396,6 +403,7 @@ public class MSM {
 				Thread.sleep(5000);
 				//click on Got it button
 				stepExecutor.clickButton("findElementByXPath", ".//*[@class='onboarding-button']/a", webDriver, "MailshotMaker");
+				
 				Thread.sleep(3000);
 				
 				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
@@ -715,11 +723,11 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 							
             stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
 			
-			System.out.println("Agrees To Terms And Conditions");	
+		//	System.out.println("Agrees To Terms And Conditions");	
 			
 			//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSM");
+			System.out.println("Dashboard opreation done sucessfully");
 			
-	
 			
 		} 
 		}
@@ -799,10 +807,11 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		try {
 			stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Lists')]", webDriver,"Lists");
 			//Thread.sleep(5000);
-			
+			webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+
 			(new WebDriverWait(webDriver, 30))
 			.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='lists__my-lists--lists lists__my-lists__list']//li")));
-			
+			webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			//ArrayList<WebElement> CustList = (ArrayList<WebElement>)webDriver.findElements(By.cssSelector("lists__my-lists--lists lists__my-lists__list"));
 			//System.out.println(CustList.size());
 			
@@ -921,7 +930,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			
 			LogoutAplication();
 			
-			LoginDetails();
+		/*	LoginDetails();
 				
 			Images();
 				
@@ -948,7 +957,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	        LogoutAplication();
 					
 				 
-			 System.out.println("Sucessfully logout from the application ");
+			 System.out.println("Sucessfully logout from the application ");*/
 			 
 			
 		}
@@ -991,7 +1000,13 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 				reporter.writeStepResult("PayPal", "Transaction Status", "", "Fail", "Transaction Failed Due to error", true, webDriver);
 				
 			}else {
-				Thread.sleep(7000);
+				//Thread.sleep(7000);
+				
+				webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+
+				(new WebDriverWait(webDriver, 30))
+				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#confirmButtonTop")));
+				webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "PayPal");
 				
 			}
@@ -1003,8 +1018,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		
 	}
 
-	
-	
+		
 	public void LoginDetails () throws InterruptedException
 	{
 		try {
@@ -1014,9 +1028,10 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Login')]", webDriver,"MailshotMaker");
 			
 		//	Thread.sleep(5000);
-			
+			webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 			(new WebDriverWait(webDriver, 10))
 			.until(ExpectedConditions.visibilityOfElementLocated(By.id("Email")));
+			webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
 			// Enter user name
 			highlightelelements1(webDriver,"Email");
@@ -1030,6 +1045,8 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			//stepExecutor.clickButton("findElementByXPath", ".//*[@id='login']/div/form/div[4]/button", webDriver,"MSM");
 			highlightelelements(webDriver,".//button[contains(text(),'Log in')]");
 			stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Log in')]", webDriver,"MailshotMaker");
+			
+			System.out.println("Log on to application sucessfully");
 			
 						
 		} catch (Exception e) {

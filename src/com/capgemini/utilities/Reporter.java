@@ -727,7 +727,7 @@ public static String browser;
 				
 			//	System.out.println("value of this " + strScreenshot.indexOf(strScreenshot));
 				//aWriter.write(strReplaceText);
-				aWriter.write("\" target=\"_blank\">Screenshot</td>\n");
+				aWriter.write("\" target=\"_self\">Screenshot</td>\n");
 
 			}
 
@@ -1240,7 +1240,7 @@ return sCurrentRowNumber;
 			
 			FileWriter aWriter = null;
 			String strComponent = null;
-			String strBrowser = exe.getExecutionBrowser();
+			// String strBrowser = exe.getExecutionBrowser();
 			String strOSName = System.getProperty("os.name");
 			
 			// commit by dinesh on 11/11/2016
