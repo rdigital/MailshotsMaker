@@ -217,28 +217,21 @@ public class MSM {
 			webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 			
-		//	highlightelelements(webDriver, elementpath);
-		/*	WebDriverWait wait1 = new WebDriverWait(webDriver, 60); 
-			wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//a[contains(text(),'Mailshots')]")));*/
-			
-			//waituntilconditions(6000,".//a[contains(text(),'Mailshots')]");
-			
-		    //waitcondition(wait, ".//a[contains(text(),'Mailshots')]");
-			
+		
 			highlightelelements(webDriver, ".//a[contains(text(),'Mailshots')]");
 			
 			stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Mailshots')]", webDriver, "MailshotMaker");
 			
-			Thread.sleep(3000);
+			Thread.sleep(3000);*/
 			
 			//waitcondition(wait, ".//span[contains( text(),'New Mailshot')]");
 			
 			//click on  New mailshot
 		List<WebElement> MailshotList = webDriver.findElements(By.xpath(".//*[@class='content-box list__empty']"));
-			//System.out.println("Element found");*/
+			//System.out.println("Element found");
 			
-		if (MailshotList.size() >0)
-			{			
+	  	if (MailshotList.size() >0)
+		     {			
 				highlightelelements(webDriver, ".//span[contains(text(), 'Create your first mailshot')]");
 				
 				//stepExecutor.clickButton("findElementByXPath", ".//span[contains(text(), 'Create your first mailshot')]", webDriver, "MailshotMaker");
@@ -316,7 +309,7 @@ public class MSM {
 				
 				//Drop down value 
 				
-		    	String PrintDeliveryvalue = scriptExecutor.readDataFile(strDataFileName, TestCase, rownumber, "PrintDelivery");
+		    /*	String PrintDeliveryvalue = scriptExecutor.readDataFile(strDataFileName, TestCase, rownumber, "PrintDelivery");
 				
 		    	new Select(webDriver.findElementByXPath(".//*[@id='postalOptions']")).selectByVisibleText(PrintDeliveryvalue);
 				
@@ -331,12 +324,12 @@ public class MSM {
 				//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSM");
 				
 				//Click on Proceed to payment");	
-				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MailshotMaker");
+				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MailshotMaker");*/
 				
 												
-				Thread.sleep(6000);
+				//Thread.sleep(6000);
 					
-				PaypalPaymentDetails();
+				//PaypalPaymentDetails();
 
 		    	//webDriver.switchTo().defaultContent();
 				
@@ -348,7 +341,7 @@ public class MSM {
 			//	stepExecutor.clickButton("findElementByXPath", ".//*[@value ='Pay Now']", webDriver, "MSM");
 				
 				//stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
-				PayPal_PayNowClickButton();
+				//PayPal_PayNowClickButton();
 				
 												
 			} 
@@ -1025,7 +1018,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			
 			//Click on Login 
 			highlightelelements(webDriver,".//*[contains(text(),'Login')]");
-			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Login')]", webDriver,"MailshotMaker");
+			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Login1')]", webDriver,"MailshotMaker");
 			
 		//	Thread.sleep(5000);
 			webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);

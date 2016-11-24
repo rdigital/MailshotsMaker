@@ -91,6 +91,7 @@ public class Reporter {
 	private String strAbsolutepath = new File("").getAbsolutePath();
 	private String strScreenshot;
 	static String strAbsolutePath = new File("").getAbsolutePath();
+	String ScreenshotFileName;
 	// static List<String> tempList_scenario_name1 = new ArrayList<String>(0);
 	// static List<String> tempList_teststep_description = new
 	// ArrayList<String>(0);
@@ -215,8 +216,8 @@ public static String browser;
 	}
 
 	public String now() {
-		String strScreenshotPath = strAbsolutePath + "/results/screenshot/";
-		//String strScreenshotPath = "../../../results/screenshot/";
+		String strScreenshotPath = strAbsolutePath + "\\results\\screenshot\\";
+		//String strScreenshotPath = "screenshot\\";
 		Calendar cal = Calendar.getInstance();
 		month = cal.get(Calendar.MONTH) + 1;
 		day = cal.get(Calendar.DAY_OF_MONTH);
@@ -224,8 +225,10 @@ public static String browser;
 		SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
 		Random rand = new Random();
 		int num = rand.nextInt(1000);
-		strScreenshot = (String) (strScreenshotPath + strDetails
-				+ sdf.format(cal.getTime()) + num + ".png");
+		// comment added by Nirbhay 
+		ScreenshotFileName = strDetails
+				+ sdf.format(cal.getTime()) + num + ".png";
+		strScreenshot = (String) (strScreenshotPath + ScreenshotFileName);
 		return sdf.format(cal.getTime());
 	}
 
@@ -723,11 +726,17 @@ public static String browser;
 				//dinesh vaidya 07/05/2016
 				//String strReplaceText =strScreenshot.replace(strScreenshot.substring(0, strScreenshot.indexOf("/")),"../../../../..");
 			//	System.out.println(strReplaceText);
-				aWriter.write("file:///" + strScreenshot);
+				
+				
+				aWriter.write("screenshot\\" + ScreenshotFileName);
+				
+			//   aWriter.write(strScreenshot);
 				
 			//	System.out.println("value of this " + strScreenshot.indexOf(strScreenshot));
 				//aWriter.write(strReplaceText);
-				aWriter.write("\" target=\"_self\">Screenshot</td>\n");
+				//aWriter.write("\" target=\"_self\">Screenshot</td>\n");
+				
+				aWriter.write("\" target=\"_target\">Screenshot</td>\n");
 
 			}
 
@@ -820,8 +829,7 @@ public static String browser;
             if (sCurrentExecutionCondition.equalsIgnoreCase("Yes")&& sBrowserName.equalsIgnoreCase(temp[1]) )
                          
             {
-                          
-                    	    sCurrentRowNumber=i;
+                       	    sCurrentRowNumber=i;
                             System.out.println("sCurrentRowNumber"+sCurrentRowNumber);
                             break;
                     
