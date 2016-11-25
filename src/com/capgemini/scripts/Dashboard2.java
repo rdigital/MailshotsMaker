@@ -241,7 +241,7 @@ public class Dashboard2 {
 			//stepExecutor.clickElement("findElementByXPath", "html/body/div[2]/div[2]/lists-component/div/div[2]/my-lists-component/section/ul/li[1]/div/span", webDriver, "TWG");
 			
 			//stepExecutor.clickElement("findElementByXPath", ".//input[@type='checkbox'])[position()=1]", webDriver, "TWG");
-			stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+			stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver,"MailshotMaker");
 			
 		
 			/*System.out.println("check box checked");
@@ -263,7 +263,7 @@ public class Dashboard2 {
 			
 			System.out.println("moved on bottom");
 			
-           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver,"MailshotMaker");
 			
 			System.out.println("Agrees To Terms And Conditions");	
 			

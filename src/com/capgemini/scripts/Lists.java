@@ -193,7 +193,7 @@ public class Lists {
 			
 			if (CustList.size() >0)
 			{ //.//*[@class='lists__my-lists--lists lists__my-lists__list']//li[1]/div/span
-				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver,"MailshotMaker");
 				
 				Thread.sleep(5000);
 				

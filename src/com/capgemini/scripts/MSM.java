@@ -185,7 +185,6 @@ public class MSM {
 			
 		try {
 			
-		
 			
 			LoginDetails();
 			
@@ -283,7 +282,7 @@ public class MSM {
 			if (CustList.size() > 0)
 				
 			{
-				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver,"MailshotMaker");
 				
 				Thread.sleep(2000);
 					//click on Add to mailshot		
@@ -308,7 +307,7 @@ public class MSM {
 				
 				//Drop down value 
 				
-		    String PrintDeliveryvalue = scriptExecutor.readDataFile(strDataFileName, TestCase, rownumber, "PrintDelivery");
+		        String PrintDeliveryvalue = scriptExecutor.readDataFile(strDataFileName, TestCase, rownumber, "PrintDelivery");
 				
 		    	new Select(webDriver.findElementByXPath(".//*[@id='postalOptions']")).selectByVisibleText(PrintDeliveryvalue);
 				
@@ -316,7 +315,7 @@ public class MSM {
 				
 									
 				//click on Agrees To Terms And Conditions 				
-	            stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+	            stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver,"MailshotMaker");
 				
 				System.out.println("Agrees To Terms And Conditions");	
 				
@@ -399,7 +398,7 @@ public class MSM {
 				
 				Thread.sleep(3000);
 				
-				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver,"MailshotMaker");
 				
              //   stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add to mailshot')]", webDriver,"MSM");
                 
@@ -420,7 +419,7 @@ public class MSM {
 				Thread.sleep(4000);
 									
 								
-	           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+	           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver,"MailshotMaker");
 				
 								
 				//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSM");
@@ -688,7 +687,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 				
 		if (CustList2.size() >0)
 		{
-			stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+			stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver,"Dashboard");
 											
 			Thread.sleep(2000);
 			
@@ -714,7 +713,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			scrollwindow (0, 270);
 							
 							
-            stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+            stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver,"Dashboard");
 			
 		//	System.out.println("Agrees To Terms And Conditions");	
 			
@@ -750,11 +749,11 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		  List<WebElement> Imagelist = webDriver.findElements(By.xpath(".//*[@class='library-image-inner']"));
 		
 		if (Imagelist.size() >0)
-		{
+	    {
 			//this is for when existing image attached
 			highlightelelements(webDriver,".//div[contains(text(),'Upload a new image')]");
 			stepExecutor.clickButton("findElementByXPath", ".//div[contains(text(),'Upload a new image')]", webDriver,"Image");
-		}else{
+	   	}else{
 			
 			//this is for when no  image attached
 			highlightelelements(webDriver,".//span[contains(text(),'Upload a new image')]");
@@ -798,9 +797,11 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	{
 		
 		try {
+			// New List Creation funaction
 			
-			//CreateNewList();
-			stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Lists')]", webDriver,"Lists");
+			CreateNewList();
+			
+			/*stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Lists')]", webDriver,"Lists");
 			//Thread.sleep(5000);
 			webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
@@ -808,19 +809,19 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='lists__my-lists--lists lists__my-lists__list']//li")));
 			webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			//ArrayList<WebElement> CustList = (ArrayList<WebElement>)webDriver.findElements(By.cssSelector("lists__my-lists--lists lists__my-lists__list"));
-			//System.out.println(CustList.size());
+			//System.out.println(CustList.size());*/
 			
-		    List<WebElement> CustList1 = webDriver.findElements(By.xpath(".//*[@class='lists__my-lists--lists lists__my-lists__list']//li"));
+		//   List<WebElement> CustList1 = webDriver.findElements(By.xpath(".//*[@class='lists__my-lists--lists lists__my-lists__list']//li"));
 			
 			
-			if (CustList1.size() >0)
+	/*	if (CustList1.size() >0)
 			{
 				
 				stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
 				System.out.println("List checked");
 				Thread.sleep(5000);
 				
-			}
+			}*/
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -846,19 +847,22 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			
 			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Create a new list')]", webDriver,"Lists");
 			
+			Thread.sleep(3000);
+			
 			//Enter Address Title
-			stepExecutor.enterTextValue("findElementById", "listname", DataMap,"NewAddress_Title", webDriver, "MailshotMaker");
+			stepExecutor.enterTextValue("findElementById", "listname", DataMap,"NewAddress_Title", webDriver, "Lists");
 					
 			System.out.println("Enter Address Title ");
+			Thread.sleep(3000);
 			
 			//click on ok button
-			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[1]/div/div/form/span/button", webDriver,"MailshotMaker");
+			stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[1]/div/div/form/span/button", webDriver,"Lists");
 			
 			scrollwindow (0, 260);
 			
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			
-			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add contact details individually')]", webDriver,"MailshotMaker");
+			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add contact details individually')]", webDriver,"Lists");
 			System.out.println("clicked on Add contact details individually via contains");
 			
 		//	stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[2]/upload-data-component/div/div/div[1]/a", webDriver,"MSM");
@@ -875,8 +879,8 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	        	
 	       // Capturing add address details function 
 	        AddressDetails();
-
-			
+	        
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -985,17 +989,17 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 				
 			Lists();
 							
-	        Thread.sleep(3000);
+	       Thread.sleep(3000);
 	           
-	       	LogoutAplication();
+	     	LogoutAplication();
 	        	
 			LoginDetails();
 				
-		    DashBoard();
+		     DashBoard();
 			    
-		    MyProfile_MyOrders();
+		     MyProfile_MyOrders();
 					 
-		    Thread.sleep(3000);
+		   Thread.sleep(3000);
 			    
 	        LogoutAplication();
 					
@@ -1123,7 +1127,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			
             highlightelelements(webDriver, ".//*[contains(text(),'Add address details')]");
 			
-			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add address details')]", webDriver,"MailshotMaker");
+			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add address details')]", webDriver,"Dashboard");
 			
 			
 		} catch (Exception e) {
@@ -1138,23 +1142,23 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		try {
 			
 			//Entering Value in Title
-	        stepExecutor.enterTextValue("findElementById", "editTitle", DataMap,"EditTitle", webDriver, "MailshotMaker");
+	        stepExecutor.enterTextValue("findElementById", "editTitle", DataMap,"EditTitle", webDriver, "Lists");
 	       // Entering Value in First name
-	        stepExecutor.enterTextValue("findElementById", "editFirstName", DataMap,"EditFirstName", webDriver, "MailshotMaker");
+	        stepExecutor.enterTextValue("findElementById", "editFirstName", DataMap,"EditFirstName", webDriver, "Lists");
 	        //Entering Value in Last name
-	        stepExecutor.enterTextValue("findElementById", "editSurname", DataMap,"EditSurname", webDriver, "MailshotMaker");
+	        stepExecutor.enterTextValue("findElementById", "editSurname", DataMap,"EditSurname", webDriver, "Lists");
 	         //Entering Value in Flat id
-	        stepExecutor.enterTextValue("findElementById", "editFlatId", DataMap,"EditFlatId", webDriver, "MailshotMaker");
+	        stepExecutor.enterTextValue("findElementById", "editFlatId", DataMap,"EditFlatId", webDriver, "Lists");
 	       // Entering Value in House name
-	        stepExecutor.enterTextValue("findElementById", "editHouseName", DataMap,"EditHouseName", webDriver, "MailshotMaker");
+	        stepExecutor.enterTextValue("findElementById", "editHouseName", DataMap,"EditHouseName", webDriver, "Lists");
 	        //Entering Value in House No
-	        stepExecutor.enterTextValue("findElementById", "editHouseNumber", DataMap,"EditHouseNumber", webDriver, "MailshotMaker");
+	        stepExecutor.enterTextValue("findElementById", "editHouseNumber", DataMap,"EditHouseNumber", webDriver, "Lists");
 	        //Entering Value in Address one
-	        stepExecutor.enterTextValue("findElementById", "editAddress1", DataMap,"EditAddress1", webDriver, "MailshotMaker");
+	        stepExecutor.enterTextValue("findElementById", "editAddress1", DataMap,"EditAddress1", webDriver, "Lists");
 		       // Entering Value in Post Code
-		    stepExecutor.enterTextValue("findElementById", "editPostCode", DataMap,"EditPostCode", webDriver, "MailshotMaker");
+		    stepExecutor.enterTextValue("findElementById", "editPostCode", DataMap,"EditPostCode", webDriver, "Lists");
 		     
-		    stepExecutor.clickButton("findElementByXPath", ".//*[@class='btn btn--green confirm-add']", webDriver,"MailshotMaker");
+		    stepExecutor.clickButton("findElementByXPath", ".//*[@class='btn btn--green confirm-add']", webDriver,"Lists");
 			
 			
 		} catch (Exception e) {

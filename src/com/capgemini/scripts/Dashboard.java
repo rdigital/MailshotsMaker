@@ -246,7 +246,7 @@ public class Dashboard {
 						
 				if (CustList.size() >0)
 				{
-					stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+					stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver,"MailshotMaker");
 					
 					
 					stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add to mailshot')]", webDriver,"MSM");
@@ -262,7 +262,7 @@ public class Dashboard {
 					
 					System.out.println("moved on bottom");
 					
-		            stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+		            stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver,"MailshotMaker");
 					
 					System.out.println("Agrees To Terms And Conditions");	
 					
@@ -372,7 +372,7 @@ public class Dashboard {
 					
 					Thread.sleep(5000);
 					
-					stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver);
+					stepExecutor.clickByCss(".lists__my-lists--lists.lists__my-lists__list>li:nth-child(1)>div>span", webDriver,"MailshotMaker");
 					
 	                stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add to mailshot')]", webDriver,"MSM");
 					
@@ -386,7 +386,7 @@ public class Dashboard {
 					jse8.executeScript("scroll(0, 270)"); // if the element is on bottom.
 					
 									
-		           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver);
+		           stepExecutor.clickByCss("#AgreesToTermsAndConditions", webDriver,"MailshotMaker");
 					
 									
 					//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSM");

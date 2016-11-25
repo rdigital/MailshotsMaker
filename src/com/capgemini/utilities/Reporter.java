@@ -225,7 +225,7 @@ public static String browser;
 		SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
 		Random rand = new Random();
 		int num = rand.nextInt(1000);
-		// comment added by Nirbhay 
+		// comment added by Nirbhay 24-Nov-2016
 		ScreenshotFileName = strDetails
 				+ sdf.format(cal.getTime()) + num + ".png";
 		strScreenshot = (String) (strScreenshotPath + ScreenshotFileName);

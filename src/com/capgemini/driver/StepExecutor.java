@@ -1280,7 +1280,7 @@ public class StepExecutor {
 	// Clicking element by css Selector
 
 	@SuppressWarnings("finally")
-	public boolean clickByCss(String strAttribute, RemoteWebDriver webDriver) {
+	public boolean clickByCss(String strAttribute, RemoteWebDriver webDriver, String sAppname) {
 		boolean sFalg = true;
 		try {
 			/*
