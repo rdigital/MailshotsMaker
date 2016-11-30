@@ -331,14 +331,14 @@ public class MSM {
 
 		    	//webDriver.switchTo().defaultContent();
 				
-			  //  Thread.sleep(6000);
+			     Thread.sleep(6000);
 				
 			//stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "MSM");
 			//	stepExecutor.clickByCss("#confirmButtonTop", webDriver);
 				
 			//	stepExecutor.clickButton("findElementByXPath", ".//*[@value ='Pay Now']", webDriver, "MSM");
 				
-				//stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
+			//stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
 			     
 				PayPal_PayNowClickButton();
 				
@@ -985,8 +985,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "PayPal");
 		
 		System.out.println("PayNow done......");
-		
-	   
+			   
 		Thread.sleep(8000);
 		
 		WebElement aftvalue = webDriver.findElement(By.xpath(".//*[@class='heading02 heading02_no-margin-top']"));
@@ -1050,13 +1049,13 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		 	Lists();
 		 	
 		 	Thread.sleep(3000);
+		 	
 		     MyProfile_MyOrders();
 					 
 		     Thread.sleep(3000);
 			    
 	         LogoutAplication();
 					
-				 
 			 System.out.println("Sucessfully logout from the application ");
 			 
 			
