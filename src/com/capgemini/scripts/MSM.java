@@ -935,6 +935,8 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	        	
 	       // Capturing add address details function 
 	        AddressDetails();
+	        System.out.println("List Created sucessfully");
+	        Thread.sleep(1000);
 	        
 		
 		} catch (Exception e) {
@@ -1047,6 +1049,10 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 				
 		   //  DashBoard();
 		 	Lists();
+		 	
+		 	LogoutAplication();
+		 	
+		 	LoginDetails();
 		 	
 		 	Thread.sleep(3000);
 		 	
@@ -1231,7 +1237,7 @@ public void MyProfile_MyOrders() throws InterruptedException
 {
 	try {
 		
-		  highlightelelements(webDriver, ".//a[contains(text(),'My orders')]");
+		    highlightelelements(webDriver, ".//a[contains(text(),'My orders')]");
 		    stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'My orders')]", webDriver, "MyOrder");
 		    
 		    Thread.sleep(3000);
