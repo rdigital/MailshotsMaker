@@ -1050,7 +1050,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 					 
 		     Thread.sleep(3000);
 			    
-	        LogoutAplication();
+	         LogoutAplication();
 					
 				 
 			 System.out.println("Sucessfully logout from the application ");
@@ -1085,6 +1085,8 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	{
 		try {
 			
+			Thread.sleep(6000);
+			
             WebElement LabelWelcomeback = webDriver.findElement(By.xpath(".//P[@id='reviewUserInfo']"));
 			
 			String Welcomebackvalue = LabelWelcomeback.getText();
@@ -1098,11 +1100,12 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			}else {
 				Thread.sleep(7000);
 				
-				/*webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+			/*	webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
 				(new WebDriverWait(webDriver, 40))
 				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#confirmButtonTop")));
-				webDriver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);*/
+				 webDriver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);*/
+				
 				stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "PayPal");
 				
 				System.out.println("PayNow done......");
