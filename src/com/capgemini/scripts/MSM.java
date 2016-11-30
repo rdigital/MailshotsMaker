@@ -508,7 +508,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	{
 		try {
 								
-		           Thread.sleep(10000);
+		           Thread.sleep(9000);
             
 					stepExecutor.enterTextValue("findElementById", "campaignname", DataMap,"Untitled_mailshot", webDriver, "MailshotMaker");
 					
@@ -980,10 +980,14 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	{
 	try {
 				
-		PaypalButtonVisible();
+		//PaypalButtonVisible();
+		
+		stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "PayPal");
+		
+		System.out.println("PayNow done......");
 		
 	   
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		
 		WebElement aftvalue = webDriver.findElement(By.xpath(".//*[@class='heading02 heading02_no-margin-top']"));
 		
