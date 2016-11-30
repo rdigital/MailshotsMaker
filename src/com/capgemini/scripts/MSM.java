@@ -935,8 +935,13 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	        	
 	       // Capturing add address details function 
 	        AddressDetails();
+	        
+	        Thread.sleep(3000);
+  		      
+		    webDriver.switchTo().window(winHandleBefore);
+		    
 	        System.out.println("List Created sucessfully");
-	        Thread.sleep(1000);
+	        //Thread.sleep(1000);
 	        
 		
 		} catch (Exception e) {
