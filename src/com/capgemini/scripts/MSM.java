@@ -333,7 +333,7 @@ public class MSM {
 
 		    	//webDriver.switchTo().defaultContent();
 				
-			    Thread.sleep(7000);
+			    Thread.sleep(6000);
 				
 			//stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "MSM");
 			//	stepExecutor.clickByCss("#confirmButtonTop", webDriver);
@@ -992,12 +992,13 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 				
 		//PaypalButtonVisible();
 		
-		/*webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+	//	webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		
 
-    	(new WebDriverWait(webDriver, 60))
-		.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#confirmButtonTop")));
-		webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);*/
+    	(new WebDriverWait(webDriver, 120))
+    	.until(ExpectedConditions.titleContains("PayPal Checkout - Review your payment"));
+		//.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#confirmButtonTop")));
+	//	webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		
 		//((JavascriptExecutor)webDriver).executeScript("return document.readyState") =="complete";
 		

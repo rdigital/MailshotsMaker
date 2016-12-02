@@ -1,66 +1,169 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html><head><link type="text/css" href="pages/css/themes/ui-lightness/jquery-ui-1.8.16.custom.css" rel="Stylesheet" /><link type="text/css" href="pages/css/myStyle.css" rel="Stylesheet" /><script type="text/javascript" src="pages/js/jquery-1.6.2.min.js"></script><script type="text/javascript" src="pages/js/jquery-ui-1.8.16.custom.min.js"></script><script type="text/javascript" src="pages/js/my.js"></script></head><script>$(document).ready(function(){$("#tabs_environment,#tabs_plan,#tabs_set,#set_content_tabs").tabs({selected: 0,deselectable: true});$("button", ".btn" ).button();$("button", ".plan_step_list" ).button();$("#tabs_plan").hide();$("#tabs_set").hide();$("#dialog").dialog({autoOpen:false,modal:true,buttons:{ Store:function(){return;}},dialogClass: 'f2',resizable: true,show: 'slide',height:120});});</script><script>$(document).ready(function(){$("#hrefid").click(function() {$(".expand").toggle();});});</script><script type="text/javascript">function toggleTable(id) {var iterationId = document.getElementById("tr_" + id);var buttonValueId = document.getElementById("button_" + id);iterationId.style.display == "block" ? iterationId.style.display = "none" : iterationId.style.display = "block";if(buttonValueId.value=="Show ")buttonValueId.value="Hide ";else buttonValueId.value="Show ";}</script><body><div class="page_container"><div class="head"><img alt="Capgemini" src="./pages/images/logo160.gif"></div><div class="content"><div class="right_content"><div id="tabs_environment"><ul><li><a href="#tabs-set-2" class="f2">Execution Report </a></li><br></br></ul><div id="tabs-set-1"  class="f2"><div style="margin-top: 10px;" id="style_div"><table  style="width:100%;"><tr ><td><b>Execution Date   </b></td><td><b>Execution Start Time  </b></td><td><b>TestCase Name  </b></td><td><b>Operating System </b></td><td><b>Browser  </b></td></tr><tr class="list_table_tr"><td><td><td></td><td></td><td></td><td></td></tr><tr class="list_table_tr"><td>2-12-2016</td><td>6:34:45 PM</td><td>MSM</td><td>Windows 7</td><td>Chrome</td></tr></table><br> <a href="#" id="hrefid" style="color: blue;" >Click for test-case data</a><br><div class="expand"><table  style="width:100%;"><thead><td ><input type="button" id="button_5" onclick="toggleTable(5)" style=" height:25px; width:auto;text-align: center;" value="Show ">&nbsp;&nbsp;&nbsp; Iteration 5 </td></thead><tbody id="tr_5" style="display:none;"><tr class="list_table_tr"><td><b>Test Scenario Name</b></td><td><b>Test Step Description</b></td><td><b>Test Data</b></td><td><b>Status</b></td><td><b>Result Description</b></td><td><b>ScreenShot</b></td></tr><tr class="list_table_tr"><td >LAUNCHAPPLICATION</td><td >Lauch Application URL</td><td >https://qa.mailshotmaker.royalmail.com/</td><td><font color="Green">Pass</td>
-<td >Lauched Application URL successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.35.45306.png" target="_target">Screenshot</td>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html><head><link type="text/css" href="pages/css/themes/ui-lightness/jquery-ui-1.8.16.custom.css" rel="Stylesheet" /><link type="text/css" href="pages/css/myStyle.css" rel="Stylesheet" /><script type="text/javascript" src="pages/js/jquery-1.6.2.min.js"></script><script type="text/javascript" src="pages/js/jquery-ui-1.8.16.custom.min.js"></script><script type="text/javascript" src="pages/js/my.js"></script></head><script>$(document).ready(function(){$("#tabs_environment,#tabs_plan,#tabs_set,#set_content_tabs").tabs({selected: 0,deselectable: true});$("button", ".btn" ).button();$("button", ".plan_step_list" ).button();$("#tabs_plan").hide();$("#tabs_set").hide();$("#dialog").dialog({autoOpen:false,modal:true,buttons:{ Store:function(){return;}},dialogClass: 'f2',resizable: true,show: 'slide',height:120});});</script><script>$(document).ready(function(){$("#hrefid").click(function() {$(".expand").toggle();});});</script><script type="text/javascript">function toggleTable(id) {var iterationId = document.getElementById("tr_" + id);var buttonValueId = document.getElementById("button_" + id);iterationId.style.display == "block" ? iterationId.style.display = "none" : iterationId.style.display = "block";if(buttonValueId.value=="Show ")buttonValueId.value="Hide ";else buttonValueId.value="Show ";}</script><body><div class="page_container"><div class="head"><img alt="Capgemini" src="./pages/images/logo160.gif"></div><div class="content"><div class="right_content"><div id="tabs_environment"><ul><li><a href="#tabs-set-2" class="f2">Execution Report </a></li><br></br></ul><div id="tabs-set-1"  class="f2"><div style="margin-top: 10px;" id="style_div"><table  style="width:100%;"><tr ><td><b>Execution Date   </b></td><td><b>Execution Start Time  </b></td><td><b>TestCase Name  </b></td><td><b>Operating System </b></td><td><b>Browser  </b></td></tr><tr class="list_table_tr"><td><td><td></td><td></td><td></td><td></td></tr><tr class="list_table_tr"><td>2-12-2016</td><td>9:16:25 PM</td><td>MSM</td><td>Windows 7</td><td>Chrome</td></tr></table><br> <a href="#" id="hrefid" style="color: blue;" >Click for test-case data</a><br><div class="expand"><table  style="width:100%;"><thead><td ><input type="button" id="button_6" onclick="toggleTable(6)" style=" height:25px; width:auto;text-align: center;" value="Show ">&nbsp;&nbsp;&nbsp; Iteration 6 </td></thead><tbody id="tr_6" style="display:none;"><tr class="list_table_tr"><td><b>Test Scenario Name</b></td><td><b>Test Step Description</b></td><td><b>Test Data</b></td><td><b>Status</b></td><td><b>Result Description</b></td><td><b>ScreenShot</b></td></tr><tr class="list_table_tr"><td >LAUNCHAPPLICATION</td><td >Lauch Application URL</td><td >https://qa.mailshotmaker.royalmail.com/</td><td><font color="Green">Pass</td>
+<td >Lauched Application URL successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.16.39768.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.35.46572.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.16.39829.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.35.49627.png" target="_target">Screenshot</td>
-<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >mumbai10@test10.com</td><td><font color="Green">Pass</td>
-<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.35.49150.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.16.42690.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >mumbai3@test3.com</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.16.4299.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >India@321</td><td><font color="Green">Pass</td>
-<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.35.50108.png" target="_target">Screenshot</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.16.42891.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.35.53514.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.16.45455.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Verify Home Title is present in the page</td><td >Expected Value :MailshotMaker</td><td><font color="Green">Pass</td>
-<td >Expected text is present</td><td ><a href ="screenshot\MSM2016-12-02-06.35.54184.png" target="_target">Screenshot</td>
+<td >Expected text is present</td><td ><a href ="screenshot\MSM2016-12-02-09.16.46373.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.35.56305.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.16.47509.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.36.29384.png" target="_target">Screenshot</td>
-<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >RMG00QA</td><td><font color="Green">Pass</td>
-<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.36.39940.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.17.20224.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >MyFirstMailshot</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.17.30971.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.36.39561.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.17.30755.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.36.49208.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.17.37484.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.36.53157.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.17.42647.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.37.02574.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.17.48694.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.37.11496.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.17.57211.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >null</td><td >Click on Element</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked on Element successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.37.13870.png" target="_target">Screenshot</td>
+<td >Clicked on Element successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.17.5930.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.37.30941.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.14236.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >null</td><td >Verify element is present on the page</td><td >.//A[CONTAINS(TEXT(),'CREATE A NEW LIST')]</td><td><font color="Green">Pass</td>
-<td >Element is present on the page</td><td ><a href ="screenshot\MSM2016-12-02-06.37.34636.png" target="_target">Screenshot</td>
+<td >Element is present on the page</td><td ><a href ="screenshot\MSM2016-12-02-09.18.20195.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >null</td><td >Click on Element</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked on Element successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.37.34667.png" target="_target">Screenshot</td>
+<td >Clicked on Element successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.20176.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.37.36640.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.22173.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.37.42568.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.28674.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.37.45514.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.30519.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >null</td><td >Click on Element</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked on Element successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.37.51667.png" target="_target">Screenshot</td>
+<td >Clicked on Element successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.35544.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.38.02911.png" target="_target">Screenshot</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.46850.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >PAYPAL</td><td >Enter Value in text field</td><td >paypaldeveloper-cap@royalmail.com</td><td><font color="Green">Pass</td>
-<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.38.09909.png" target="_target">Screenshot</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.52247.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >PAYPAL</td><td >Enter Value in text field</td><td >!Roy4lM5hot</td><td><font color="Green">Pass</td>
-<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.38.09747.png" target="_target">Screenshot</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.52127.png" target="_target">Screenshot</td>
 <tr class="list_table_tr"><td >PAYPAL</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
-<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-06.38.10419.png" target="_target">Screenshot</td>
-<tr class="list_table_tr"><td >PAYPAL</td><td >Click on button</td><td ></td><td><font color="Red">Fail</td>
-<td >no such element: Unable to locate element: {"method":"css selector","selector":"#confirmButtonTop"}
-  (Session info: chrome=54.0.2840.99)
-  (Driver info: chromedriver=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 30.03 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
-System info: host: 'DIN19000582', ip: '10.147.169.20', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_77'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed), userDataDir=C:\Users\dvaidya\AppData\Local\Temp\scoped_dir11372_4650}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=54.0.2840.99, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 7f823228d35ac8a2b6a628f59ca74249</td><td ><a href ="screenshot\MSM2016-12-02-06.38.43883.png" target="_target">Screenshot</td>
-<tr class="list_table_tr"><td valign="top" colspan="6"><div class="right_content"><div id="tabs_environment"><ul><li><a href="#tabs-set-2" class="f2">Iteration Summary </a></li></ul><div id="tabs-set-1"  class="f2"><tr class="list_table_tr"><td><b>Data Sheet</b></td><td>./data/MasterSheet.xls</td></tr><tr class="list_table_tr"><td><b>Number of Steps Passed</b></td><td> <font color="Green">27</td></tr><tr class="list_table_tr"><td><b>Number of Steps Failed</b></td><td><font color="Red">1</td></tr></div></div></td></tr></tbody></table><hr></div></table><table class="content_table" cellpadding="0" cellspacing="0"><tr class="list_table_tr"><td valign="top"><div class="right_content"><div id="tabs_environment"><ul><li><a href="#tabs-set-2" class="f2">Report Summary </a></li></ul><div id="tabs-set-1"  class="f2"><div style="margin-top: 10px;"><table id="set_table" width="100%" class="f2" cellpadding="" cellspacing="10" ><tr class="list_table_tr"><td><b>Data Sheet</b></td><td>./data/MasterSheet.xls</td></tr><tr class="list_table_tr"><td><b>End Test Run</b></td><td>6:39:23 PM</td></tr><tr class="list_table_tr"><td><b>Elapsed Test Time</b></td><td>4 min 37 seconds</td></tr><tr class="list_table_tr"><td><b>Number of Iteration Passed</b></td><td> <font color="Green">0</td></tr><tr class="list_table_tr"><td><b>Number of Iteration Failed</b></td><td><font color="Red">1</td></tr><tr class="list_table_tr"><td><b>Percentage of Iteration Passed</b></td><td>0</td></tr></table></div></div></div></div></td></tr></table></div></div></div></div></td></tr></table></div></div></body></html>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.18.53511.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >PAYPAL</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.19.02707.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Order number generated</td><td >Order number :2016328600010</td><td><font color="Green">Pass</td>
+<td >Transaction done with Order number</td><td ><a href ="screenshot\MSM2016-12-02-09.19.18539.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.19.31927.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.19.33403.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >mumbai3@test3.com</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.19.34846.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >India@321</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.19.34136.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.19.38891.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >IMAGE</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.19.42422.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >IMAGE</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.19.46954.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >IMAGE</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.19.49860.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.00523.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.02821.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >mumbai3@test3.com</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.03890.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >India@321</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.03819.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.06762.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.1199.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.16328.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Enter Value in text field</td><td >RMG00QADESH</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.26474.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.26672.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.33432.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.37344.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.40881.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.49992.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.20.59554.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >null</td><td >Verify element is present on the page</td><td >.//A[CONTAINS(TEXT(),'CREATE A NEW LIST')]</td><td><font color="Green">Pass</td>
+<td >Element is present on the page</td><td ><a href ="screenshot\MSM2016-12-02-09.21.02815.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >null</td><td >Click on Element</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked on Element successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.02339.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.05580.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.11961.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >DASHBOARD</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.13818.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >null</td><td >Click on Element</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked on Element successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.13456.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.20665.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.22143.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >mumbai3@test3.com</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.23746.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >India@321</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.23405.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.25131.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.27998.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.30853.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Enter Value in text field</td><td >SITAddress34QA</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.33884.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.36760.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.39528.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Enter Value in text field</td><td >RMGQA</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.43711.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Enter Value in text field</td><td >Petricca</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.43452.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Enter Value in text field</td><td >Claudio</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.43673.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Enter Value in text field</td><td >201</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.44309.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Enter Value in text field</td><td >Hall View</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.4447.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Enter Value in text field</td><td >Apartment 2</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.44208.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Enter Value in text field</td><td >Apartment 2, Hall View</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.44557.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Enter Value in text field</td><td >S40 2BX</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.44205.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >LISTS</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.45907.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.56730.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.58749.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >mumbai3@test3.com</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.58843.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Enter Value in text field</td><td >India@321</td><td><font color="Green">Pass</td>
+<td >Value entered successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.21.58685.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.22.01627.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MYORDER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.22.06532.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MYPROFILE</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.22.11466.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td >MAILSHOTMAKER</td><td >Click on button</td><td ></td><td><font color="Green">Pass</td>
+<td >Clicked button successfully</td><td ><a href ="screenshot\MSM2016-12-02-09.22.17571.png" target="_target">Screenshot</td>
+<tr class="list_table_tr"><td valign="top" colspan="6"><div class="right_content"><div id="tabs_environment"><ul><li><a href="#tabs-set-2" class="f2">Iteration Summary </a></li></ul><div id="tabs-set-1"  class="f2"><tr class="list_table_tr"><td><b>Data Sheet</b></td><td>./data/MasterSheet.xls</td></tr><tr class="list_table_tr"><td><b>Number of Steps Passed</b></td><td> <font color="Green">84</td></tr><tr class="list_table_tr"><td><b>Number of Steps Failed</b></td><td><font color="Red">0</td></tr></div></div></td></tr></tbody></table><hr></div></table><table class="content_table" cellpadding="0" cellspacing="0"><tr class="list_table_tr"><td valign="top"><div class="right_content"><div id="tabs_environment"><ul><li><a href="#tabs-set-2" class="f2">Report Summary </a></li></ul><div id="tabs-set-1"  class="f2"><div style="margin-top: 10px;"><table id="set_table" width="100%" class="f2" cellpadding="" cellspacing="10" ><tr class="list_table_tr"><td><b>Data Sheet</b></td><td>./data/MasterSheet.xls</td></tr><tr class="list_table_tr"><td><b>End Test Run</b></td><td>9:22:19 PM</td></tr><tr class="list_table_tr"><td><b>Elapsed Test Time</b></td><td>5 min 54 seconds</td></tr><tr class="list_table_tr"><td><b>Number of Iteration Passed</b></td><td> <font color="Green">1</td></tr><tr class="list_table_tr"><td><b>Number of Iteration Failed</b></td><td><font color="Red">0</td></tr><tr class="list_table_tr"><td><b>Percentage of Iteration Passed</b></td><td>100</td></tr></table></div></div></div></div></td></tr></table></div></div></div></div></td></tr></table></div></div></body></html>
