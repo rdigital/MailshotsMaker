@@ -24,6 +24,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.WebElement;
@@ -31,6 +32,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -331,7 +333,7 @@ public class MSM {
 
 		    	//webDriver.switchTo().defaultContent();
 				
-			     Thread.sleep(6000);
+			    // Thread.sleep(6000);
 				
 			//stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "MSM");
 			//	stepExecutor.clickByCss("#confirmButtonTop", webDriver);
@@ -891,21 +893,21 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			//Thread.sleep(5000);
 			webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
-			(new WebDriverWait(webDriver, 30))
+			(new WebDriverWait(webDriver, 50))
 			.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[contains(text(),'Create a new list')]")));
-			webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			webDriver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			
 			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Create a new list')]", webDriver,"Lists");
 			
-			Thread.sleep(4000);
+			Thread.sleep(3000);
 			
 			
 			//Enter Address Title
 			stepExecutor.enterTextValue("findElementById", "listname", DataMap,"NewAddress_Title", webDriver, "Lists");
 					
-			System.out.println("Enter Address Title");
+			System.out.println("Address Title entered on the field");
 			
-			Thread.sleep(4000);
+			Thread.sleep(3000);
 			
 			//click on ok button to give the list name
 		    stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[1]/div/div/form/span/button", webDriver,"Lists");
@@ -913,17 +915,18 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		//	stepExecutor.clickByCss(".validation-msg invalid-campaign-name", webDriver, "Lists");
 			
 						
-			scrollwindow (0, 260);
+			scrollwindow (0, 250);
 			
 			Thread.sleep(3000);
 			
 			stepExecutor.clickButton("findElementByXPath", ".//*[contains(text(),'Add contact details individually')]", webDriver,"Lists");
 			
-			System.out.println("clicked on Add contact details individually via contains");
+			System.out.println("clicked on Add contact details individually sucessfully");
 			
 		//	stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[2]/upload-data-component/div/div/div[1]/a", webDriver,"MSM");
 			
 			//System.out.println("clicked on Add contact details individually");
+			Thread.sleep(3000);
 
 	        String winHandleBefore = webDriver.getWindowHandle();
 
@@ -935,10 +938,10 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	        	
 	       // Capturing add address details function 
 	        AddressDetails();
-	        
-	        Thread.sleep(3000);
-  		      
+	        	         		      
 		    webDriver.switchTo().window(winHandleBefore);
+		    
+		    Thread.sleep(3000);
 		    
 	        System.out.println("List Created sucessfully");
 	        //Thread.sleep(1000);
@@ -971,7 +974,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 						
 		    webDriver.switchTo().defaultContent();
 			
-			Thread.sleep(9000);
+			Thread.sleep(3000);
 			
 			System.out.println("click on Pay Pal login button sucessfully");
 		
@@ -989,11 +992,27 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 				
 		//PaypalButtonVisible();
 		
+		/*webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		
+
+    	(new WebDriverWait(webDriver, 60))
+		.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#confirmButtonTop")));
+		webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);*/
+		
+		//((JavascriptExecutor)webDriver).executeScript("return document.readyState") =="complete";
+		
+		
 		stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "PayPal");
 		
 		System.out.println("PayNow done......");
 			   
-		Thread.sleep(8000);
+		Thread.sleep(9000);
+		
+		/*webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+
+		(new WebDriverWait(webDriver, 60))
+		.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='heading02 heading02_no-margin-top']")));
+		webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);*/
 		
 		WebElement aftvalue = webDriver.findElement(By.xpath(".//*[@class='heading02 heading02_no-margin-top']"));
 		
@@ -1099,7 +1118,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	{
 		try {
 			
-			Thread.sleep(6000);
+			Thread.sleep(8000);
 			
             WebElement LabelWelcomeback = webDriver.findElement(By.xpath(".//P[@id='reviewUserInfo']"));
 			
@@ -1259,6 +1278,31 @@ public void MyProfile_MyOrders() throws InterruptedException
 		e.printStackTrace();
 	}
 }
+
+
+
+public WebElement fluientWaitforElement(WebElement element, int timoutSec, int pollingSec) {
+
+    FluentWait<WebDriver> fWait = new FluentWait<WebDriver>(webDriver).withTimeout(timoutSec, TimeUnit.SECONDS)
+        .pollingEvery(pollingSec, TimeUnit.SECONDS)
+        .ignoring(NoSuchElementException.class, TimeoutException.class).ignoring(StaleElementReferenceException.class);
+
+    for (int i = 0; i < 2; i++) {
+        try {
+            //fWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='reportmanager-wrapper']/div[1]/div[2]/ul/li/span[3]/i[@data-original--title='We are processing through trillions of data events, this insight may take more than 15 minutes to complete.']")));
+        fWait.until(ExpectedConditions.visibilityOf(element));
+        fWait.until(ExpectedConditions.elementToBeClickable(element));
+        } catch (Exception e) {
+
+        System.out.println("Element Not found trying again - " + element.toString().substring(70));
+        e.printStackTrace();
+
+        }
+    }
+
+    return element;
+
+    }
 	  
 			
 	
