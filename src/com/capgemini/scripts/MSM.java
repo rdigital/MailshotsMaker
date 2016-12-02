@@ -333,7 +333,7 @@ public class MSM {
 
 		    	//webDriver.switchTo().defaultContent();
 				
-			    // Thread.sleep(6000);
+			    Thread.sleep(7000);
 				
 			//stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "MSM");
 			//	stepExecutor.clickByCss("#confirmButtonTop", webDriver);
