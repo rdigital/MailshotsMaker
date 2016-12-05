@@ -324,15 +324,18 @@ public class MSM {
 				
 				//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSM");
 				
-				//Click on Proceed to payment");	
-				stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MailshotMaker");
-				
+				//Click on Proceed to payment");
+				//commit by dinesg 5 dec 2016
+			//	stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MailshotMaker");
+									
 												
 			     Thread.sleep(6000);
-					
-			     PaypalPaymentDetails();
+			     
+			     System.out.println("Mailshot Maker workflow Tested sucessfully");	
+				/*	
+			     //PaypalPaymentDetails();
 
-		    	//webDriver.switchTo().defaultContent();
+		    
 				
 			    Thread.sleep(6000);
 				
@@ -343,7 +346,46 @@ public class MSM {
 				
 			//stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");
 			     
-				PayPal_PayNowClickButton();
+				PayPal_PayNowClickButton();*/
+			     
+			 	LogoutAplication();
+				
+				LoginDetails();
+					
+				Images();
+					
+				LogoutAplication();
+				
+				LoginDetails();
+												
+				Thread.sleep(3000);
+					
+				Lists();
+				//DashBoard();
+								
+		        Thread.sleep(3000);
+		           
+		     	LogoutAplication();
+		        	
+				LoginDetails();
+					
+			    DashBoard();
+			 //	Lists();
+			 	
+			 	LogoutAplication();
+			 	
+			 	LoginDetails();
+			 	
+			 	Thread.sleep(3000);
+			 	
+			     MyProfile_MyOrders();
+						 
+			     Thread.sleep(3000);
+				    
+		         LogoutAplication();
+						
+				 System.out.println("Sucessfully logout from the application ");
+			
 				
 												
 			} 
@@ -427,23 +469,63 @@ public class MSM {
 				
 								
 				//stepExecutor.clickButton("findElementByXPath", ".//button[contains(text(),'Checkout')]", webDriver,"MSM");
-				
+	         //  commit by dinesh 5 dec 2016
 				//System.out.println("Click on Checkout button");	
-			   stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MailshotMaker");
+			//   stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/div/div[1]/div[2]/div[4]/div/div/form/div/button", webDriver,"MailshotMaker");
 			   
-			   				
+			   
 				Thread.sleep(6000);
+				System.out.println("Mailshot Maker workflow Tested sucessfully");
+				/*
 				// Payment details 			
 				PaypalPaymentDetails();
 				
 				Thread.sleep(6000);
 				
-				PayPal_PayNowClickButton();
+				PayPal_PayNowClickButton();*/
 				/*stepExecutor.clickByCss("#confirmButtonTop", webDriver);
 				
 				stepExecutor.clickButton("findElementByXPath", "html/body/div[2]/div/div/div/div/div/div/div/div/div/div/section/div[1]/div[1]/form/div[4]/input", webDriver, "MSM");*/
+				
+				LogoutAplication();
+				
+				LoginDetails();
+					
+				Images();
+					
+				LogoutAplication();
+				
+				LoginDetails();
+												
+				Thread.sleep(3000);
+					
+				 Lists();
+				//DashBoard();
+								
+		        Thread.sleep(3000);
+		           
+		     	LogoutAplication();
+		        	
+				LoginDetails();
+					
+			     DashBoard();
+			 	//Lists();
+			 	
+			 	LogoutAplication();
+			 	
+			 	LoginDetails();
+			 	
+			 	Thread.sleep(3000);
+			 	
+			     MyProfile_MyOrders();
+						 
+			     Thread.sleep(3000);
+				    
+		         LogoutAplication();
+						
+				 System.out.println("Sucessfully logout from the application ");
 			
-			  							
+						  							
 			}
 			
 			} catch (Exception e) {
@@ -704,8 +786,10 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	scrollwindow (0, 250);
 	
 	// click on Choose postcard
-	highlightelelements(webDriver,".//a[contains(text(),'Choose Postcard')]");
-	stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Choose Postcard')]", webDriver,"Dashboard");
+	highlightelelements(webDriver,".//a[contains(text(),'Choose Letter')]");
+	//stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Choose Postcard')]", webDriver,"Dashboard");
+	
+	stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Choose Letter')]", webDriver,"Dashboard");
 
 	//stepExecutor.clickButton("findElementByXPath", ".//*[@id='format_chooser']/div/div[1]/article[1]/a", webDriver,"Dashboard");
 				
@@ -949,7 +1033,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		    
 		    Thread.sleep(3000);
 		    
-	        System.out.println("List Created sucessfully");
+	        System.out.println("List created sucessfully");
 	        //Thread.sleep(1000);
 	        
 		
@@ -1013,7 +1097,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		
 		stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "PayPal");
 		
-		System.out.println("PayNow done......");
+		System.out.println("PayNow done.");
 			   
 		Thread.sleep(9000);
 		
@@ -1055,11 +1139,11 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			
 			reporter.writeStepResult("MAILSHOTMAKER", "Order number generated", "Order number :" + Ordidvalue, "Pass", "Transaction done with Order number", true, webDriver);
 			WriteExcelDataFile(strDataFileName, rownumber, "Home_title_Results", "Pass");
-			System.out.println("Order number generated and transaction complated sucessfully");
+			System.out.println("Order number generated and transaction completed sucessfully");
 				
 			Thread.sleep(6000);
 			
-		/*	LogoutAplication();
+			LogoutAplication();
 			
 			LoginDetails();
 				
@@ -1095,7 +1179,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			    
 	         LogoutAplication();
 					
-			 System.out.println("Sucessfully logout from the application ");*/
+			 System.out.println("Sucessfully logout from the application ");
 			 
 			
 		}
