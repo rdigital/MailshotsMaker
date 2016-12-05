@@ -207,6 +207,7 @@ public class MSM {
 			}
 			
 								
+			
 			//Thread.sleep(4000);
 			
 						
@@ -540,13 +541,18 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			 if (ForamtSelection.equals("CP")) {
 				 highlightelelements(webDriver, ".//a[contains(text(),'Choose Postcard')]");
 				 stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Choose Postcard')]", webDriver,"MailshotMaker");
+				 System.out.println("click on Choose Postcard Sucessfully");
+				 
 			} else if (ForamtSelection.equals("CR")) {
 				
 				highlightelelements(webDriver, ".//a[contains(text(),'Choose Letter')]");
 				stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Choose Letter')]", webDriver,"MailshotMaker");
+				System.out.println("click on Choose Letter Sucessfully");
+				
 			}else {
 				highlightelelements(webDriver, ".//a[contains(text(),'Choose Sealed mailer')]");
 				stepExecutor.clickButton("findElementByXPath", ".//a[contains(text(),'Choose Sealed mailer')]", webDriver,"MailshotMaker");
+				
 			}
 
 									
@@ -993,10 +999,12 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 		//PaypalButtonVisible();
 		
 	//	webDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-		
+		(new WebDriverWait(webDriver, 120))
+    	.until(ExpectedConditions.titleContains("PayPal Checkout - Review your payment"));
 
     	(new WebDriverWait(webDriver, 120))
-    	.until(ExpectedConditions.titleContains("PayPal Checkout - Review your payment"));
+    	.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#confirmButtonTop")));
+    	//titleContains("PayPal Checkout - Review your payment")
 		//.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#confirmButtonTop")));
 	//	webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		
@@ -1051,7 +1059,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 				
 			Thread.sleep(6000);
 			
-			LogoutAplication();
+		/*	LogoutAplication();
 			
 			LoginDetails();
 				
@@ -1087,7 +1095,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			    
 	         LogoutAplication();
 					
-			 System.out.println("Sucessfully logout from the application ");
+			 System.out.println("Sucessfully logout from the application ");*/
 			 
 			
 		}
