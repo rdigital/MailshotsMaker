@@ -879,10 +879,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	}
 	
 
-	
-	
-
-	
+		
 	public void DashBoard () throws InterruptedException
 	{
 		try {
