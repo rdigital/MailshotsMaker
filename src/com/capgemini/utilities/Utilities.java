@@ -109,23 +109,17 @@ public class Utilities {
 		try {
 
 			// Enter username
-			wait.until(ExpectedConditions.elementToBeClickable(By
-					.id("IDToken1")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("IDToken1")));
 			webDriver.findElementById("IDToken1").click();
-			stepExecutor.enterTextValue("findElementById", "IDToken1", DataMap,
-					"Textbox_User", webDriver, "LOGIN");
+			stepExecutor.enterTextValue("findElementById", "IDToken1", DataMap,	"Textbox_User", webDriver, "LOGIN");
 			// Enter password
 
-			wait.until(ExpectedConditions.elementToBeClickable(By
-					.id("IDToken2")));
-			stepExecutor.enterTextValue("findElementById", "IDToken2", DataMap,
-					"Textbox_pwd", webDriver, "LOGIN");
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("IDToken2")));
+			stepExecutor.enterTextValue("findElementById", "IDToken2", DataMap,"Textbox_pwd", webDriver, "LOGIN");
 
 			// Code for login button starts
-			wait.until(ExpectedConditions.elementToBeClickable(By
-					.name("Login.Submit")));
-			stepExecutor.clickButton("findElementByName", "Login.Submit",
-					webDriver, "Login");
+			wait.until(ExpectedConditions.elementToBeClickable(By.name("Login.Submit")));
+			stepExecutor.clickButton("findElementByName", "Login.Submit",webDriver, "Login");
 
 		} catch (Exception e1) {
 			// System.out.println(e1.getMessage());
