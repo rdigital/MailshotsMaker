@@ -152,7 +152,7 @@ public class MSM {
 			DataMap=readExcel.loadDataMap(rownumber);
 			//readExcel.readByIndex(i);
 			//webDriver.switchTo().activeElement();
-			//System.out.println(capabilities.getBrowserName());
+			
 			//reporter.setStrBrowser(capabilities.getBrowserName());
 			reporter.addIterator(i);
 			testcaseMain(); 
@@ -710,7 +710,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
 		}
 		
