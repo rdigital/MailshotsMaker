@@ -394,8 +394,7 @@ public class MSM {
 						Thread.sleep(2000);
 							
 						MyProfile_MyOrders();
-					 //	Lists();
-					 	
+					 					 	
 					 	LogoutAplication();
 					 	
 					 	LoginDetails();
@@ -491,9 +490,7 @@ public class MSM {
 				
 			//	stepExecutor.clickButton("findElementByXPath", "html/body/div[1]/create-list-component/div[1]/div[2]/upload-data-component/div/div/div[1]/a", webDriver,"MSM");
 				
-				//System.out.println("clicked on Add contact details individually");
-
-		        String winHandleBefore = webDriver.getWindowHandle();
+			    String winHandleBefore = webDriver.getWindowHandle();
 
 		        for(String winHandle : webDriver.getWindowHandles())
 		        	
@@ -1224,6 +1221,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 	
 	
 	public void PayPal_PayNowClickButton () throws InterruptedException
+	
 	{
 	try {
 				
@@ -1373,7 +1371,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 
 				(new WebDriverWait(webDriver, 40))
 				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#confirmButtonTop")));
-				 webDriver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);*/
+				 webDriver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS); */
 				
 				stepExecutor.clickButton("findElementByCss", "#confirmButtonTop", webDriver, "PayPal");
 				
@@ -1410,8 +1408,7 @@ public void highlightelelements1 (WebDriver webDriver, String elementxpath) thro
 			highlightelelements1(webDriver,"Email");
 			wait.until(ExpectedConditions.elementToBeClickable(By.id("Email")));
 			stepExecutor.enterTextValue("findElementById", "Email", DataMap,"username", webDriver, "MailshotMaker");
-			
-			
+						
 			
 			//Enter Password
 			highlightelelements1(webDriver,"Password");
@@ -1590,7 +1587,6 @@ public void MyProfile_MyOrders() throws InterruptedException
     	return (sdf.format(cal.getTime()));
     	
 	}
-	
 	
 		
 }
